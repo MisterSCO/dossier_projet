@@ -1,0 +1,128 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size      : 62.5%;
+	/* Ramène à 10px */
+	scroll-behavior: smooth;
+}
+
+body {
+	min-height : 100vh;
+	font-family       : Arial, Helvetica, sans-serif;
+	font-size : 1.6em;
+	line-height: 1.6;
+	overflow-x : hidden;
+	background-image: url("../../dark/background/woven_1920.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+}
+
+.main{
+	padding: 0 4em;
+}
+
+.banner,
+.footer {
+	padding         : 1rem calc((100% - 1200px) / 2);
+	background-color: $dark-color;
+	color           : #eee;
+
+	a{
+		color : $color-inverse;
+		text-decoration: none;	
+		transition: all 0.5s;
+
+		&:hover,
+		&:focus,
+		&:active{
+			color : rgb(0, 119, 255);
+		}
+	}
+}
+
+.banner {
+	display                         : grid;
+	grid-template-columns           : max-content 1fr;
+	grid-template-rows              : auto;
+	gap                             : 1rem;
+	align-items                     : center;
+}
+
+.site-logo {
+	grid-column: 1;
+	grid-row   : 1;
+	font-size  : 1.3em;
+}
+
+.site-description {
+	grid-column: 1;
+	grid-row   : 2;
+	margin     : 0;
+}
+
+.banner-nav {
+	grid-column   : 2;
+	grid-row      : 1 / span 2;
+	justify-self  : end;
+	text-transform: uppercase;
+
+	a{
+		margin: 0 1rem;
+	}
+}
+
+#random{
+	display              : grid;
+	grid-template-columns: 0.7fr 1.3fr;
+	grid-template-rows   : 0.1fr 1.9fr;
+	gap: 0px 0px;
+	grid-template-areas  : 
+	"title title "
+	"god items";
+
+	h1{
+		grid-area: title;
+		text-align: center;
+	}
+	
+
+	#god{
+		grid-area: god;
+		padding: 2rem;
+
+		.god_picture {
+			max-width : 394px;
+			max-height: 526px;
+		}
+	}
+
+
+	#item {
+		grid-area: items;
+		padding: 2rem;
+
+		.items_picture {
+			max-width: 128px;
+			text-align: center;
+		}
+	}
+}
+
+.banner-nav .is-current {
+	color: aqua;
+}
+
+
+.footer {
+	position  : relative;
+	text-align: center;
+	margin-top: 1em;
+
+	a{
+		color: #eee;
+	}
+}
+

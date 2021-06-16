@@ -1,0 +1,21 @@
+
+    <main class="main">
+        <section id="random">
+            <h1>Randomizer SMITE</h1>
+            <div id="god">
+                <h2 class="god_name"><?= htmlspecialchars($god['name']) ?></h2>
+                <img class="god_picture" src="<?= htmlspecialchars($god['picture_god']) ?>">
+            </div>
+
+            <div id="item">
+                <?php while ($items = $query_items->fetch()) : ?>
+                    <h2 class="item_name"><?= htmlspecialchars($items['name']) ?></h2>
+                    <img class="items_picture" src="<?= htmlspecialchars($items['picture_item']) ?>">
+                <?php endwhile ?>
+            </div>
+
+        </section>
+
+
+
+    </main>
