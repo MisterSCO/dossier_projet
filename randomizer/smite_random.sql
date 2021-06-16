@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 16 juin 2021 à 15:09
+-- Généré le : mer. 16 juin 2021 à 18:13
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.4.9
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `smite_random`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE IF NOT EXISTS `admin` (
+  `id_admin` int(11) NOT NULL AUTO_INCREMENT,
+  `pseudo` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `pass` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_admin`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `admin`
+--
+
+INSERT INTO `admin` (`id_admin`, `pseudo`, `email`, `pass`) VALUES
+(1, 'MisterSCO', 'l.lecomte77@gmail.com', '$2y$10$icgMoNRNOd6/wiGF4oOLluEKDydiOdGZ32xLGvmvVhp6jmqSanHWy');
 
 -- --------------------------------------------------------
 
@@ -61,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `gods` (
   `id_class` int(11) NOT NULL,
   PRIMARY KEY (`id_god`),
   KEY `id_class` (`id_class`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `gods`
@@ -69,11 +91,7 @@ CREATE TABLE IF NOT EXISTS `gods` (
 
 INSERT INTO `gods` (`id_god`, `name`, `picture_god`, `id_class`) VALUES
 (1, 'Bellone', 'https://webcdn.hirezstudios.com/smite/god-skins/bellona_standard-bellona.jpg', 2),
-(2, 'Ra', 'https://webcdn.hirezstudios.com/smite/god-skins/ra_standard-ra.jpg', 1),
-(3, 'Cupidon', 'https://webcdn.hirezstudios.com/smite/god-skins/cupid_standard-cupid.jpg', 4),
-(4, 'Cabrakan', 'https://webcdn.hirezstudios.com/smite/god-skins/cabrakan_standard-cabrakan.jpg', 3),
-(5, 'Discordia', 'https://webcdn.hirezstudios.com/smite/god-skins/discordia_standard-discordia.jpg', 1),
-(6, 'Loki', 'https://webcdn.hirezstudios.com/smite/god-skins/loki_standard-loki.jpg', 5);
+(2, 'Ra', 'https://webcdn.hirezstudios.com/smite/god-skins/ra_standard-ra.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -89,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `items` (
   `id_type` int(11) NOT NULL,
   PRIMARY KEY (`id_item`),
   KEY `id_type` (`id_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `items`
@@ -110,12 +128,7 @@ INSERT INTO `items` (`id_item`, `name`, `picture_item`, `id_type`) VALUES
 (12, 'Transcendance', 'https://webcdn.hirezstudios.com/smite/item-icons/transcendence.jpg', 1),
 (13, 'Marteau gelé', 'https://webcdn.hirezstudios.com/smite/item-icons/frostbound-hammer.jpg', 1),
 (14, 'Epée briseroche', 'https://webcdn.hirezstudios.com/smite/item-icons/stone-cutting-sword.jpg', 1),
-(15, 'Lame dorée', 'https://webcdn.hirezstudios.com/smite/item-icons/golden-blade.jpg', 1),
-(16, 'Ruine Divine', 'https://webcdn.hirezstudios.com/smite/item-icons/divine-ruin.jpg', 2),
-(17, 'Gemme des ames', 'https://webcdn.hirezstudios.com/smite/item-icons/soul-gem.jpg', 2),
-(18, 'Pièce de Charon', 'https://webcdn.hirezstudios.com/smite/item-icons/charons-coin.jpg', 2),
-(19, 'Couronne de lotus', 'https://webcdn.hirezstudios.com/smite/item-icons/lotus-crown.jpg', 2),
-(20, 'Colère de Jotunn', 'https://webcdn.hirezstudios.com/smite/item-icons/jotunns-wrath.jpg', 1);
+(15, 'Lame dorée', 'https://webcdn.hirezstudios.com/smite/item-icons/golden-blade.jpg', 1);
 
 -- --------------------------------------------------------
 

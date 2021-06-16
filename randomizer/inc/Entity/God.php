@@ -5,7 +5,7 @@ use Manager\DbManager;
 
 class God
 {
-
+    
         public static function getGod()
         {
             $pdo = DbManager::connect();

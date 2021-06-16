@@ -1,17 +1,22 @@
 <div class="container">
-    <div class="m-5">
+    <div class="m-5 row">
         <form action="login.php" method="post">
             <fieldset>
-                <h1>Se connecter</h1>
+                <h1 class="text-light">Se connecter</h1>
                 <?= $message ?>
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" name="email" id="email" class="form-control">
+                    <label for="email" class="form-label text-light">Email</label>
+                    <div class="col-sm-5">
+                        <input type="email" name="email" id="email" class="form-control">
+                    </div>
                 </div>
 
                 <div class="mb-3">
-                    <label for="pass" class="form-label">Mot de passe</label>
-                    <input type="password" name="pass" id="pass" class="form-control">
+                    <label for="pass" class="form-label text-light">Mot de passe</label>
+                    <div class="col-sm-5">
+                        <input type="password" name="pass" id="pass" class="form-control">
+                    </div>
+
                 </div>
             </fieldset>
             <input type="submit" value="Envoyer">
