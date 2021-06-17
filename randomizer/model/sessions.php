@@ -27,7 +27,7 @@ function init_session(): bool
  */
 function is_logged(): bool
 {
-    if (array_key_exists('id_user', $_SESSION)) {
+    if (array_key_exists('id_admin', $_SESSION)) {
         return true;
     }
     return false;

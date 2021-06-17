@@ -2,8 +2,8 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-use inc\Entity\God;
-use inc\Entity\Item;
+use Entity\God;
+use Entity\Item;
 
 require_once 'config/config.php';
 require_once('_bootstrap.php');
@@ -13,8 +13,8 @@ $img_path = PATH_MEDIAS . MEDIAS_DEFAULT . '/';
 
 $theme_default = THEME_PATH . THEME_DEFAULT . '/';
 
-// Appele de la fonction pour choisir un dieu aléatoirement dans la base de donnée
-$query_god = God::getGod();
+// Appele de la fonction pour choisir un dieu aléatoirement dans la base de données
+$query_god = God::getRandomGod();
 $god = $query_god->fetch();
 
 if ($god['id_class'] == 1 || $god['id_class'] == 3)
@@ -25,7 +25,7 @@ else {
     $id_item = 1;
 }
 
-$query_items = Item::getItemsById($id_item);
+$query_items = Item::getRandomItemsById($id_item);
 
 
 // Affichage

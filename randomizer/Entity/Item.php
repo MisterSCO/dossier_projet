@@ -1,16 +1,17 @@
 <?php
 
-namespace inc\Entity;
+namespace Entity;
 
 use Manager\DbManager;
 
 class Item
 {
 
-    public static function getItemsById($id_item)
+    public static function getRandomItemsById($id_item)
     {
         $pdo = DbManager::connect();
 
+        //Requete SQL
         $query = $pdo->prepare('
             SELECT * 
             FROM `items` 

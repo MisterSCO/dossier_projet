@@ -1,15 +1,16 @@
 <?php
-namespace inc\Entity;
+namespace Entity;
 
 use Manager\DbManager;
 
 class God
 {
     
-        public static function getGod()
+        public static function getRandomGod()
         {
             $pdo = DbManager::connect();
 
+            //Requete SQL
             $query = $pdo->prepare('
                 SELECT 
                     *

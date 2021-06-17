@@ -3,6 +3,8 @@
 function connect()
 {
 
+    require_once('config/config.php');
+
     // Tenter de se connecter a la base de donnée blog du serveur MySQL local
     try {
 
@@ -28,40 +30,28 @@ function connect()
     catch (PDOException $error) {
         error_log($error->getMessage(), 3, './log/errors.log');
 
-        header('Location: 404.php?er=404');
+        header('Location:404.php?er=404');
         exit;
     }
 }
 
-function getGod()
+function getAdminbyLogin($login)
 {
     $pdo = connect();
-
     $query = $pdo->prepare('
-        SELECT 
-            *
-        FROM `gods` 
-        ORDER by RAND()
-        LIMIT 1
+
+        SELECT
+            id_admin,
+            email,
+            pass, 
+            pseudo
+        FROM admin
+        WHERE email = :login
     ');
-    $query->execute();
 
-    return $query;
-}
+    $query->execute(array(':login' => $login));
 
-function getItemsById($id_item)
-{
-    $pdo = connect();
+    $user = $query->fetch();
+    return $user;
 
-    $query = $pdo->prepare('
-        SELECT * 
-        FROM `items` 
-        WHERE `id_type` = :id_item
-        ORDER by RAND()
-        LIMIT 6
-    ');
-    $query->bindValue(':id_item', $id_item, PDO::PARAM_INT);
-    $query->execute();
-
-    return $query;
 }

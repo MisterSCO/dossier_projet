@@ -1,7 +1,7 @@
 <?php
 
 require_once 'config/config.php';
-require_once('inc/fonctions.php');
+require_once('model/sessions.php');
 
 $theme_default = THEME_PATH . THEME_DEFAULT . '/';
 
@@ -13,14 +13,15 @@ if (
 ) {
     require_once('model/functions.php');
 
-    
-    $user = getUserbyLogin(trim($_POST['email']));
+
+    $user = getAdminbyLogin(htmlspecialchars(trim($_POST['email'])));
+
 
     if (
         !empty($user)
         && password_verify(trim($_POST['pass']), $user['pass']) === true
     ) {
-        require_once 'model/utils.php';
+        require_once 'model/sessions.php';
 
         init_session();
 
@@ -29,14 +30,15 @@ if (
         //Remplace l'identifiant de session courant par un nouveau
         //session_regenerate_id();
 
-        $_SESSION['id_user'] = intval($user['id_user']);
+        $_SESSION['id_admin'] = intval($user['id_admin']);
         $_SESSION['pseudo'] = htmlspecialchars($user['pseudo']);
-        header('Location: admin.php');
+
+
+        header('Location: admin_item.php');
         exit;
     }
 
     $message = 'Email ou Mot de passe incorrecte';
 }
-
-$template = 'login';
+$template = 'login_admin';
 include_once $theme_default . 'layout.phtml';

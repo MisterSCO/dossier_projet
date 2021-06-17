@@ -1,5 +1,4 @@
 <div class="row flex-grow-1">
-    <?php include './views/nav_menu.phtml' ?>
 
     <section class="col-9">
         <header class="bg-light p-1 rounded text-center">
@@ -8,14 +7,13 @@
         </header>
         <div class="table-responsive">
             <table class="table table-striped">
-                <caption>Liste des derniers articles</caption>
+                <caption>Liste des objets</caption>
                 <thead class="table-dark">
                     <tr>
                         <th>ID</th>
-                        <th>Date</th>
-                        <th>Titre</th>
-                        <th>Auteur</th>
-                        <th>Catégorie</th>
+                        <th>Nom de l'objet</th>
+                        <th>Lien image d'objet</th>
+                        <th>Type d'objet</th>
                         <th class="text-center">Modifier</th>
                         <th class="text-center">Supprimer</th>
                     </tr>
@@ -24,11 +22,10 @@
                 <tbody>
                     <?php while ($playlist = $query->fetch()) : ?>
                         <tr>
-                            <td><?= intval($playlist['id_playlist']) ?></td>
-                            <td><?= htmlspecialchars($playlist['date']) ?></td>
+                            <td><?= intval($playlist['id_item']) ?></td>
+                            <td><?= htmlspecialchars($playlist['name']) ?></td>
+                            <td><?= htmlspecialchars($playlist['picture_item']) ?></td>
                             <td><?= htmlspecialchars($playlist['title']) ?></td>
-                            <td><?= htmlspecialchars($playlist['firstname']) ?></td>
-                            <td><?= htmlspecialchars($playlist['label']) ?></td>
                             <td class="text-center">
                                 <a href="edit_post.php?id=<?= intval($playlist['id_playlist']) ?>" class="btn btn-info text-light" title="Editer l'article">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
