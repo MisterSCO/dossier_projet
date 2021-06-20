@@ -1,21 +1,22 @@
+<section id="random" class="container">
+    <h1 class="text-light">Randomizer SMITE</h1>
+    <div class="row justify-content-center">
+        <div id="god">
+            <p class="god_name text-light"><?= htmlspecialchars($god['name']) ?></p>
+            <p class="god_title text-light"><?= htmlspecialchars($god['title']) ?></p>
+            <img class="god_picture" src="<?= htmlspecialchars($god['picture_god']) ?>">
+        </div>
+        <div id="items">
+            <?php while ($items = $query_items->fetch()) : ?>
+                <div class="item">
+                    <p class="item_name text-light"><?= htmlspecialchars($items['name']) ?></p>
+                    <img class="item_picture" src="<?= htmlspecialchars($items['picture_item']) ?>">
+                </div>
+            <?php endwhile ?>
+        </div>
+        <div class="container m-auto">
+            <button class="styled col-sm-1 m-auto">Randomise</button>
+        </div>
+    </div>
 
-    <main class="main">
-        <section id="random">
-            <h1>Randomizer SMITE</h1>
-            <div id="god">
-                <h2 class="god_name text-light"><?= htmlspecialchars($god['name']) ?></h2>
-                <img class="god_picture" src="<?= htmlspecialchars($god['picture_god']) ?>">
-            </div>
-
-            <div id="item">
-                <?php while ($items = $query_items->fetch()) : ?>
-                    <h2 class="item_name text-light"><?= htmlspecialchars($items['name']) ?></h2>
-                    <img class="items_picture" src="<?= htmlspecialchars($items['picture_item']) ?>">
-                <?php endwhile ?>
-            </div>
-
-        </section>
-
-
-
-    </main>
+</section>

@@ -23,4 +23,21 @@ class God
 
             return $query;
         }
+
+        public static function getAllGod()
+        {
+            $pdo = DbManager::connect();
+
+            //Requete SQL
+            $query = $pdo->prepare('
+                    SELECT 
+                        *
+                    FROM `gods` 
+                    INNER JOIN class ON gods.id_class = class.id_class
+                ');
+            $query->execute();
+
+
+            return $query;
+        }
 }

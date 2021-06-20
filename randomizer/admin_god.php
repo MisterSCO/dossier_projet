@@ -1,8 +1,11 @@
 <?php
 
+use Entity\God;
+
 require_once 'config/config.php';
 require_once 'model/functions.php';
 require_once 'model/sessions.php';
+require_once '_bootstrap.php';
 
 
 
@@ -17,7 +20,8 @@ if (is_logged() !== true) {
 }
 
 
-/* $query =  getplaylists(); */
+$query_god = God::getAllGod();
 
-$template = 'admin_item';
+
+$template = 'admin_god';
 include_once $theme_default . 'layout.phtml';
