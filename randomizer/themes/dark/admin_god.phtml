@@ -5,7 +5,7 @@
             <h1>Tableau de bord</h1>
             <p>Gestion des dieux</p>
             <form class="d-flex col-sm-3" methode="get">
-                <input class="form-control form-control-lg" name="search" type="search" placeholder="Rechercher via le nom, le titre ou la classe" aria-label="Search" value="<?php if (!empty($_GET['search'])) {
+                <input class="form-control form-control-lg search" name="search" type="search" placeholder="Rechercher via le nom, le titre ou la classe" aria-label="Search" value="<?php if (!empty($_GET['search'])) {
                                                                                                                                                                                     echo $_GET['search'];
                                                                                                                                                                                 }; ?>">
                 <button class="btn btn-outline-success" type="submit">Go</button>
@@ -13,7 +13,7 @@
         </header>
         <div class="bg-light table-responsive">
             <table class="table table-striped">
-                <caption>Liste des objets</caption>
+                <caption class="ms-5">Liste des dieux</caption>
                 <thead class="table-dark">
                     <tr>
                         <th>ID</th>

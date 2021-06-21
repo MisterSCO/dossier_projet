@@ -6,7 +6,7 @@ use Manager\DbManager;
 class God
 {
     /** @var int */
-    protected $id;
+    protected $id_god;
 
     /** @var string */
     protected $name;
@@ -64,6 +64,57 @@ class God
         return $query;
     }
 
+    public static function createGod($newgod = array())
+    {
+        $pdo = connect();
+
+        $query = $pdo->prepare('
+            INSERT INTO users(
+            `name`, `title`, `description`, `mythologie`, `picture_god`, `id_class`
+
+        ) 
+        VALUES (
+            :name, 
+            :title,
+            :description,
+            :mythologie,
+            :picture_god,
+            :id_class
+        )
+            
+    ');
+
+        $query->execute($newgod);
+    }
+
+    public static function updateGod($editgod = array())
+    {
+        $pdo = connect();
+
+        $query = $pdo->prepare('
+            UPDATE `gods`
+            SET `name`=:name,`title`=:title,`description`=:description,`mythologie`=:mythologie,`picture_god`=:picture_god,`id_class`=:id_class
+            WHERE gods.id_god = :id_god
+            
+    ');
+
+        $query->execute($editgod);
+        return $query;
+    }
+
+    public static function deleteGod($deletegod)
+    {
+        $pdo = connect();
+        // préparationde la requete
+        $query = $pdo->prepare('
+            DELETE 
+            FROM gods
+            WHERE gods.id_god = :id_god
+        ');
+        $query->execute($deletegod);
+        return $query;
+    }
+
     public static function searchgod($search)
     {
         $pdo = connect();
@@ -80,25 +131,12 @@ class God
         return $query;
     }
 
-    /**
-     * Get the value of id
-     */ 
-    public function getId()
-    {
-        return $this->id;
-    }
 
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */ 
-    public function setId($id)
-    {
-        $this->id = $id;
 
-        return $this;
-    }
+
+
+    /*------------------------ Getter And Setter ------------------------*/
+
 
     /**
      * Get the value of name
@@ -216,6 +254,26 @@ class God
     public function setClass($class)
     {
         $this->class = $class;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id_god
+     */ 
+    public function getId_god()
+    {
+        return $this->id_god;
+    }
+
+    /**
+     * Set the value of id_god
+     *
+     * @return  self
+     */ 
+    public function setId_god($id_god)
+    {
+        $this->id_god = $id_god;
 
         return $this;
     }
