@@ -19,9 +19,11 @@
 <body class="min-vh-100 d-flex flex-column">
     <header class="navbar navbar-expand-sm navbar-dark bg-dark px-4">
         <a class="navbar-brand fs-2" href="./">Smite Random Build</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Ouvrir ou fermer le menu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <?php if (!empty($_SESSION)) : ?>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Ouvrir ou fermer le menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        <?php endif ?>
         <div id="menu" class="collapse navbar-collapse ms-auto w-auto">
 
             <nav class="navbar-nav ms-auto">
@@ -43,20 +45,58 @@
         3. Donner à main un padding-bottom afin d'éviter que la flèche pour remonter (dans le footer), positionnée en absolue, ne se superpose au contenu
     -->
     <main class="container-fluid d-flex flex-column pb-5 main">
+        <div id="curseur" class="infobulle"></div>
         <?php include  $template . '.phtml' ?>
     </main>
     <footer class="p-3 mt-auto mb-0 position-relative text-center bg-dark">
-        <p class="m-0 text-light">Formation Développeur Web - &copy;
-            <a href="https://veroniquecuomo.fr/support/" class="text-light">Véronique CUOMO</a>
+        <p class="m-0 text-light">Projet réalisé par - &copy;
+            <a href="https://www.linkedin.com/in/lecomte-loic/" class="text-light" target="_blank">Loïc LECOMTE</a>
         </p>
         <p class="m-0 text-light">Nous remercions les auteurs des images présentées sur ce site, récoltées sur
             <a class="text-light" href="https://www.smitegame.com">Smite</a>
         </p>
-        
+
     </footer>
-    <script src="<?= $theme_default . "js/main.js" ?>"></script>
+
     <script src="<?= $theme_default . "js/popper.min.js" ?>"></script>
     <script src="<?= $theme_default . "js/bootstrap.min.js" ?>"></script>
+    <script language="javascript" type="text/javascript">
+        function GetId(id) {
+            return document.getElementById(id);
+        }
+        var i = false; // La variable i nous dit si la bulle est visible ou non
+
+        function move(e) {
+            if (i) { // Si la bulle est visible, on calcul en temps reel sa position ideale
+
+                if (document.documentElement.clientWidth > 0) {
+                    GetId("curseur").style.left = 20 + event.x + document.documentElement.scrollLeft + "px";
+                    GetId("curseur").style.top = 10 + event.y + document.documentElement.scrollTop + "px";
+                } else {
+                    GetId("curseur").style.left = 20 + event.x + document.body.scrollLeft + "px";
+                    GetId("curseur").style.top = 10 + event.y + document.body.scrollTop + "px";
+                }
+            }
+        }
+
+
+        function montre(text) {
+            if (i == false) {
+                GetId("curseur").style.visibility = "visible"; // Si il est cacher (la verif n'est qu'une securité) on le rend visible.
+                GetId("curseur").innerHTML = text; // on copie notre texte dans l'élément html
+                i = true;
+            }
+        }
+
+        function cache() {
+            if (i == true) {
+                GetId("curseur").style.visibility = "hidden"; // Si la bulle est visible on la cache
+                i = false;
+            }
+        }
+        document.onmousemove = move; // dès que la souris bouge, on appelle la fonction move pour mettre à jour la position de la bulle.
+        //
+    </script>
 </body>
 
 </html>

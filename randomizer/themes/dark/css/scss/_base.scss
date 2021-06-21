@@ -12,14 +12,11 @@ body {
 	font-family       : Arial, Helvetica, sans-serif;
 	font-size : 1.6em;
 	line-height: 1.6;
-	overflow-x : hidden;
-	background-image: url("../../dark/background/woven_1920.jpg");
+	overflow-x       : hidden;
+	background-image : url("../../dark/background/woven_1920.jpg");
 	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-.main{
-	padding : 1rem calc((100% - 1200px) / 2);
+	background-size  : cover;
+	
 }
 
 
@@ -32,6 +29,9 @@ body {
 
 	#god{
 		text-align: center;
+
+		.god_picture {}
+		.god_picture {}
 
 		.god_picture {
 			max-width : 394px;
@@ -64,14 +64,12 @@ body {
 
 
 
-.styled {
+.randomize-button {
 	display: block;
 	margin: 0 auto;
-	grid-area: title;
-	border          : 0;
 	line-height     : 2.5;
 	padding         : 0 1rem;
-	font-size       : 1em;
+	font-size       : 1.4em;
 	text-align      : center;
 	color           : #fff;
 	text-shadow     : 1px 1px 1px #000;
@@ -83,13 +81,32 @@ body {
 			rgba(0, 0, 0, 0));
 	box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
 		inset -2px -2px 3px rgba(0, 0, 0, .6);
+
 }
 
-.styled:hover {
+.infobulle {
+	position        : absolute;
+	visibility      : hidden;
+	max-width: 700px;
+	border          : 1px solid rgb(255, 255, 255);
+	padding         : 10px;
+	font-family     : Verdana, Arial;
+	color: white;
+	font-size       : 0.9em;
+	background-color: #1a1b2c;
+}
+
+.randomize-button:hover {
 	background-color: rgb(0, 0, 0);
 }
 
-.styled:active {
+.randomize-button:active {
 	box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
 		inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+td{
+	table-layout: fixed;
+	width: 1em;
+	white-space: nowrap;
 }

@@ -22,6 +22,10 @@ if (is_logged() !== true) {
 
 $query_god = God::getAllGod();
 
+if (isset($_GET['search']) && !empty($_GET['search'])) {
+    $search = htmlspecialchars($_GET['search']);
+    $query_god = God::searchgod($search);
+}
 
 $template = 'admin_god';
 include_once $theme_default . 'layout.phtml';

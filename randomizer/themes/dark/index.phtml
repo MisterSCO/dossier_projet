@@ -4,18 +4,25 @@
         <div id="god">
             <p class="god_name text-light"><?= htmlspecialchars($god['name']) ?></p>
             <p class="god_title text-light"><?= htmlspecialchars($god['title']) ?></p>
-            <img class="god_picture" src="<?= htmlspecialchars($god['picture_god']) ?>">
+            <img onmouseover="montre('<?php echo (htmlspecialchars($god['description'])); ?>')" onmouseout="cache()" class="god_picture" src="<?= htmlspecialchars($god['picture_god']) ?>">
+
+
         </div>
         <div id="items">
             <?php while ($items = $query_items->fetch()) : ?>
                 <div class="item">
                     <p class="item_name text-light"><?= htmlspecialchars($items['name']) ?></p>
-                    <img class="item_picture" src="<?= htmlspecialchars($items['picture_item']) ?>">
+                    <img onmouseover="montre('<?php if (!empty($items['passif'])) {
+                                                    echo (htmlspecialchars($items['passif']));
+                                                } else {
+                                                    echo ("Cet objet n\'a pas de passif");
+                                                } ?>')" onmouseout="cache()" class="item_picture" src="<?= htmlspecialchars($items['picture_item']) ?>">
                 </div>
+
             <?php endwhile ?>
         </div>
-        <div class="container m-auto">
-            <button class="styled col-sm-1 m-auto">Randomise</button>
+        <div class="container">
+            <a href=""><button class="randomize-button col-sm-2">Randomize</button></a>
         </div>
     </div>
 

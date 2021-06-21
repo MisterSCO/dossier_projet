@@ -1,21 +1,27 @@
-<div class="row flex-grow-1">
+<div class="">
 
-    <section class="col-9">
+    <section class="">
         <header class="bg-light p-1 rounded text-center">
             <h1>Tableau de bord</h1>
-            <p>Gestion des articles du blog</p>
+            <p>Gestion des dieux</p>
+            <form class="d-flex col-sm-3" methode="get">
+                <input class="form-control form-control-lg" name="search" type="search" placeholder="Rechercher via le nom, le titre ou la classe" aria-label="Search" value="<?php if (!empty($_GET['search'])) {
+                                                                                                                                                                                    echo $_GET['search'];
+                                                                                                                                                                                }; ?>">
+                <button class="btn btn-outline-success" type="submit">Go</button>
+            </form>
         </header>
-        <div class="table-responsive">
+        <div class="bg-light table-responsive">
             <table class="table table-striped">
                 <caption>Liste des objets</caption>
                 <thead class="table-dark">
                     <tr>
                         <th>ID</th>
-                        <th>Nom du dieu</th>
+                        <th>Nom</th>
+                        <th>Classe</th>
                         <th>Titre du dieu</th>
                         <th>Description du dieu</th>
                         <th>Lien image du dieu</th>
-                        <th>Classe</th>
                         <th class="text-center">Modifier</th>
                         <th class="text-center">Supprimer</th>
                     </tr>
@@ -26,10 +32,10 @@
                         <tr>
                             <td><?= intval($gods['id_god']) ?></td>
                             <td><?= htmlspecialchars($gods['name']) ?></td>
-                            <td><?= htmlspecialchars($gods['title']) ?></td>
-                            <td><?= htmlspecialchars($gods['description']) ?></td>
-                            <td><?= htmlspecialchars($gods['picture_god']) ?></td>
                             <td><?= htmlspecialchars($gods['label']) ?></td>
+                            <td><?= htmlspecialchars($gods['title']) ?></td>
+                            <td><?= substr(htmlspecialchars($gods['description']), 0, 50) ?>...</td>
+                            <td><?= substr(htmlspecialchars($gods['picture_god']), 0, 31) ?>...</td>
                             <td class="text-center">
                                 <a href="edit_post.php?id=<?= intval($gods['id_god']) ?>" class="btn btn-info text-light" title="Editer l'article">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">

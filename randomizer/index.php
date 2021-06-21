@@ -27,7 +27,6 @@ else {
 
 $query_items = Item::getRandomItemsById($id_item);
 
-
 // Affichage
 $template = 'index';
 include_once $theme_default . 'layout.phtml';

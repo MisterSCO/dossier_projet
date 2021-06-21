@@ -34,7 +34,7 @@ if (
         $_SESSION['pseudo'] = htmlspecialchars($user['pseudo']);
 
 
-        header('Location: admin_item.php');
+        header('Location: admin_god.php');
         exit;
     }
 
