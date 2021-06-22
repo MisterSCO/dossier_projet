@@ -14,16 +14,19 @@ $img_path = PATH_MEDIAS . MEDIAS_DEFAULT . '/';
 $theme_default = THEME_PATH . THEME_DEFAULT . '/';
 
 // Appele de la fonction pour choisir un dieu aléatoirement dans la base de données
-$query_god = God::getRandomGod();
-$god = $query_god->fetch();
+$aGods = God::getRandom();
 
-if ($god['id_class'] == 1 || $god['id_class'] == 3)
-{
-    $id_item = 2;
+
+/* var_dump($aGods); */
+
+foreach ($aGods as $god) {
+    if ($god->getID() == 1 || $god->getId() == 3) {
+        $id_item = 2;
+    } else {
+        $id_item = 1;
+    }
 }
-else {
-    $id_item = 1;
-}
+
 
 $query_items = Item::getRandomItemsById($id_item);
 

@@ -20,12 +20,15 @@ if (is_logged() !== true) {
 }
 
 
-$query_god = God::getAllGod();
+$aGods = God::getAll();
+
+/* var_dump($oGod); */
 
 if (isset($_GET['search']) && !empty($_GET['search'])) {
     $search = htmlspecialchars($_GET['search']);
-    $query_god = God::searchgod($search);
+    $aGods = God::search($search);
 }
 
+/* Partie inclusion de la vue */
 $template = 'admin_god';
 include_once $theme_default . 'layout.phtml';

@@ -46,6 +46,7 @@
     -->
     <main class="container-fluid d-flex flex-column pb-5 main">
         <div id="curseur" class="infobulle"></div>
+        <?php if($template !== 'index') {include $theme_default . 'nav_admin.phtml';} ?>
         <?php include  $template . '.phtml' ?>
     </main>
     <footer class="p-3 mt-auto mb-0 position-relative text-center bg-dark">

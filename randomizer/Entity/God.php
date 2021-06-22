@@ -5,8 +5,11 @@ use Manager\DbManager;
 
 class God
 {
+    /** @var string */
+    private const TABLE = 'gods';
+
     /** @var int */
-    protected $id_god;
+    protected $id;
 
     /** @var string */
     protected $name;
@@ -21,14 +24,36 @@ class God
     protected $mythologie;
 
     /** @var string */
-    protected $img_god;
+    protected $img;
 
     /** @var string */
     protected $class;
-
     
+    /**
+     * hydrate
+     *
+     * @param  mixed $aData
+     * @return self
+     */
+    public function hydrate(array $aData = array()): self
+    {
+        $this->setId($aData['id_god']);
+        $this->setName($aData['name']);
+        $this->setTitle($aData['title']);
+        $this->setDescription($aData['description']);
+        $this->setMythologie($aData['mythologie']);
+        $this->setImg($aData['picture_god']);
+        $this->setClass($aData['label']);
 
-    public static function getRandomGod()
+        return $this;
+    }
+    
+    /**
+     * getRandom
+     *
+     * @return void
+     */
+    public static function getRandom() : array
     {
         $pdo = DbManager::connect();
 
@@ -36,18 +61,68 @@ class God
         $query = $pdo->prepare('
             SELECT 
                 *
-            FROM `gods` 
-            INNER JOIN class ON gods.id_class = class.id_class
+            FROM `' . self::TABLE .'` 
+            INNER JOIN class ON `' . self::TABLE . '`.id_class = class.id_class
             ORDER by RAND()
             LIMIT 1
         ');
         $query->execute();
 
+        $aList = array();
 
-        return $query;
+        while ($aGod = $query->fetch()) {
+            $aList[] = (new God())->hydrate($aGod);
+        }
+
+        return $aList;
     }
 
-    public static function getAllGod()
+    /**
+     * get
+     * Charger un dieu d'après son 'id'
+     * 
+     * @param int $iId
+     * Correspond a l'id d'un dieu présent dans la Database
+     * 
+     * @return Object|null
+     */
+    public static function get(int $iId): object
+    {
+        // Connexion à la Database
+        $pdo = DbManager::connect();
+
+        // Transmission de la requête
+        $query = $pdo->prepare('
+            SELECT
+                *
+            FROM `' . self::TABLE . '`
+            WHERE id_god = :id_god
+        ');
+        $query->bindValue(':id_god', $iId, \PDO::PARAM_INT);
+
+        // Exécution de la requête
+        $query->execute();
+
+        // Lecture de la réponse :
+        //Stockage da la ligne dans le tableau $aGod
+        $aGod = $query->fetch();
+
+        //SI aucun dieu valide
+        if (!$aGod) {
+            // Condition de sortie 
+            return null;
+        }
+        
+        // Retour de l'objet
+        return (new God())->hydrate($aGod);
+    }
+    
+    /**
+     * getAll
+     *
+     * @return void
+     */
+    public static function getAll()
     {
         $pdo = DbManager::connect();
 
@@ -55,21 +130,28 @@ class God
         $query = $pdo->prepare('
                 SELECT 
                     *
-                FROM `gods` 
-                INNER JOIN class ON gods.id_class = class.id_class
+                FROM `' . self::TABLE . '` 
+                INNER JOIN class ON `' . self::TABLE . '`.id_class = class.id_class
+                ORDER BY `id_god` ASC
             ');
         $query->execute();
 
 
-        return $query;
+        $aList = array();
+        
+        while ($aGod = $query->fetch()) {
+            $aList[] = (new God()) -> hydrate($aGod);
+        }
+
+        return $aList;
     }
 
-    public static function createGod($newgod = array())
+    public static function create($newgod = array())
     {
         $pdo = connect();
 
         $query = $pdo->prepare('
-            INSERT INTO users(
+            INSERT INTO `' . self::TABLE . '`(
             `name`, `title`, `description`, `mythologie`, `picture_god`, `id_class`
 
         ) 
@@ -85,16 +167,17 @@ class God
     ');
 
         $query->execute($newgod);
+
+        
     }
 
-    public static function updateGod($editgod = array())
+    public static function update($editgod = array())
     {
         $pdo = connect();
 
         $query = $pdo->prepare('
-            UPDATE `gods`
+            UPDATE `' . self::TABLE . '`
             SET `name`=:name,`title`=:title,`description`=:description,`mythologie`=:mythologie,`picture_god`=:picture_god,`id_class`=:id_class
-            WHERE gods.id_god = :id_god
             
     ');
 
@@ -102,20 +185,25 @@ class God
         return $query;
     }
 
-    public static function deleteGod($deletegod)
+    public function delete() : void
     {
+        // Connexion à la BDD
         $pdo = connect();
         // préparationde la requete
         $query = $pdo->prepare('
             DELETE 
-            FROM gods
-            WHERE gods.id_god = :id_god
+            FROM `' . self::TABLE .'`
+            WHERE id_god = :id_god
         ');
-        $query->execute($deletegod);
-        return $query;
+        $query->bindValue(':id_god', $this->id ,\PDO::PARAM_INT);
+
+        // Exécution de la requête
+        $query->execute();
+
+        return;
     }
 
-    public static function searchgod($search)
+    public static function search($search)
     {
         $pdo = connect();
 
@@ -221,9 +309,9 @@ class God
     /**
      * Get the value of img_god
      */ 
-    public function getImg_god()
+    public function getImg()
     {
-        return $this->img_god;
+        return $this->img;
     }
 
     /**
@@ -231,9 +319,9 @@ class God
      *
      * @return  self
      */ 
-    public function setImg_god($img_god)
+    public function setImg($img)
     {
-        $this->img_god = $img_god;
+        $this->img = $img;
 
         return $this;
     }
@@ -261,9 +349,9 @@ class God
     /**
      * Get the value of id_god
      */ 
-    public function getId_god()
+    public function getId()
     {
-        return $this->id_god;
+        return $this->id;
     }
 
     /**
@@ -271,9 +359,9 @@ class God
      *
      * @return  self
      */ 
-    public function setId_god($id_god)
+    public function setId($id)
     {
-        $this->id_god = $id_god;
+        $this->id = $id;
 
         return $this;
     }
