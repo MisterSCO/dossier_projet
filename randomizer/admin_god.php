@@ -1,6 +1,7 @@
 <?php
 
 use Entity\God;
+use Entity\Classe;
 
 require_once 'config/config.php';
 require_once 'model/functions.php';
@@ -21,6 +22,11 @@ if (is_logged() !== true) {
 
 
 $aGods = God::getAll();
+
+$oClasse = Classe::getAll();
+
+
+
 
 /* var_dump($oGod); */
 

@@ -3,6 +3,8 @@
         <form action="edit.php" method="post">
             <fieldset>
                 <h1>Modifier le dieu</h1>
+                <?= $message ?>
+                <input type="hidden" name="id_god" value="<?= $aFormDatas['id_god'] ?>">
                 <div class="row">
                     <div class="mb-3 col">
                         <label for="name" class="form-label">Nom du dieu</label>
@@ -25,7 +27,7 @@
                         <select class="form-select fs-4" aria-describedby="help-user" name="id_class">
                             <option value="" class="fs-4" selected disabled>Choisir la classe du dieu</option>
                             <?php foreach ($aClasses as $oClasse) : ?>
-                                <option class="fs-4" value="<?= intval($oClasse->getId()) ?>">
+                                <option <?php if ($oClasse->getId() == $aFormDatas['id_class']) : ?> selected <?php endif; ?> class="fs-4" value="<?= intval($oClasse->getId()) ?>">
                                     <?= htmlspecialchars($oClasse->getLabel()) ?>
                                 </option>
                             <?php endforeach; ?>

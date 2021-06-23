@@ -29,6 +29,11 @@ class God
     /** @var int */
     protected $class;
     
+    /** @var int */
+    protected $class_label;
+
+    
+    
     /**
      * hydrate
      *
@@ -44,6 +49,8 @@ class God
         $this->setMythologie($aData['mythologie']);
         $this->setImg($aData['picture_god']);
         $this->setClass($aData['id_class']);
+        $this->setClass_label($aData['label']);
+        
 
         return $this;
     }
@@ -73,6 +80,7 @@ class God
         return (new God())->hydrate($aGod) ;
     }
 
+
     /**
      * get
      * Charger un dieu d'après son 'id'
@@ -91,7 +99,8 @@ class God
         $query = $pdo->prepare('
             SELECT
                 *
-            FROM `' . self::TABLE . '`
+            FROM `' . self::TABLE .'`
+            INNER JOIN class ON `' . self::TABLE . '`.id_class = class.id_class
             WHERE id_god = :id_god
         ');
         $query->bindValue(':id_god', $iId, \PDO::PARAM_INT);
@@ -183,6 +192,7 @@ class God
             SET `name`=:name,`title`=:title,`description`=:description,`mythologie`=:mythologie,`picture_god`=:picture_god,`id_class`=:id_class
             WHERE id_god = :id_god
         ');
+        
         $query->bindValue(':id_god', $this->id, \PDO::PARAM_INT);
         $query->bindValue(':name', $this->name, \PDO::PARAM_STR);
         $query->bindValue(':title', $this->title, \PDO::PARAM_STR);
@@ -223,14 +233,11 @@ class God
             INNER JOIN class ON gods.id_class = class.id_class
             WHERE name LIKE  "%' . $search . '%" OR label LIKE "%' . $search .'%" OR title LIKE "%' . $search . '%"
             
-    ');
+        ');
 
         $query->execute();
         return $query;
     }
-
-
-
 
 
     /*------------------------ Getter And Setter ------------------------*/
@@ -372,6 +379,27 @@ class God
     public function setId($id)
     {
         $this->id = intval($id);
+
+        return $this;
+    }
+
+
+    /**
+     * Get the value of class_label
+     */ 
+    public function getClass_label()
+    {
+        return $this->class_label;
+    }
+
+    /**
+     * Set the value of class_label
+     *
+     * @return  self
+     */ 
+    public function setClass_label($class_label)
+    {
+        $this->class_label = $class_label;
 
         return $this;
     }

@@ -22,7 +22,7 @@ if (is_logged() !== true) {
 
 $aClasses = Classe::getAll();
 
-
+$message = '';
 
 if (!empty($_GET['id'])) {
     $oGod = God::get(intval($_GET['id']));
@@ -37,33 +37,39 @@ if (!empty($_GET['id'])) {
         'description' => $oGod->getDescription()
     );
 }
+
 //Si un formulaire est posté
 if (!empty($_POST)) {
 
-    $oGod = new God();
+    $aFormDatas = array(
+        'id_god' => htmlspecialchars($_POST['id_god']),
+        'name' => htmlspecialchars($_POST['name']),
+        'title' => htmlspecialchars($_POST['title']),
+        'mythologie' => htmlspecialchars($_POST['mythologie']),
+        'id_class' => htmlspecialchars($_POST['id_class']),
+        'picture_god' => htmlspecialchars($_POST['picture_god']),
+        'description' => htmlspecialchars($_POST['description'])
+    );
 
-    if (array_key_exists('name', $_POST)) {
+    if (empty($_POST['name']) || empty($_POST['title']) || empty($_POST['mythologie']) || empty($_POST['id_class']) || empty($_POST['picture_god']) || empty($_POST['description'])) {
+        $message = '* Veuillez remplir tout les champs';
+    }
+    else{
+
+        $oGod = new God();
+
+        $oGod->setId(htmlspecialchars($_POST['id_god']));
         $oGod->setName(htmlspecialchars($_POST['name']));
-    }
-    if (array_key_exists('title', $_POST)) {
         $oGod->setTitle(htmlspecialchars($_POST['title']));
-    }
-    if (array_key_exists('mythologie', $_POST)) {
         $oGod->setMythologie(htmlspecialchars($_POST['mythologie']));
-    }
-    if (array_key_exists('picture_god', $_POST)) {
         $oGod->setImg(htmlspecialchars($_POST['picture_god']));
-    }
-    if (array_key_exists('id_class', $_POST)) {
         $oGod->setClass(htmlspecialchars($_POST['id_class']));
-    }
-    if (array_key_exists('description', $_POST)) {
         $oGod->setDescription(htmlspecialchars($_POST['description']));
-    }
-    
-    if (!isset($error)) {
+
+        
         $oGod->save();
         header('Location: admin_god.php');
+        
     }
 }
 
