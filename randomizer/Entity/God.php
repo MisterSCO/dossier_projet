@@ -26,7 +26,7 @@ class God
     /** @var string */
     protected $img;
 
-    /** @var string */
+    /** @var int */
     protected $class;
     
     /**
@@ -43,7 +43,7 @@ class God
         $this->setDescription($aData['description']);
         $this->setMythologie($aData['mythologie']);
         $this->setImg($aData['picture_god']);
-        $this->setClass($aData['label']);
+        $this->setClass($aData['id_class']);
 
         return $this;
     }
@@ -53,7 +53,7 @@ class God
      *
      * @return void
      */
-    public static function getRandom() : array
+    public static function getRandom() : self
     {
         $pdo = DbManager::connect();
 
@@ -68,13 +68,9 @@ class God
         ');
         $query->execute();
 
-        $aList = array();
+        $aGod = $query->fetch();
 
-        while ($aGod = $query->fetch()) {
-            $aList[] = (new God())->hydrate($aGod);
-        }
-
-        return $aList;
+        return (new God())->hydrate($aGod) ;
     }
 
     /**
@@ -146,7 +142,7 @@ class God
         return $aList;
     }
 
-    public static function create($newgod = array())
+    public function create()
     {
         $pdo = connect();
 
@@ -163,26 +159,40 @@ class God
             :picture_god,
             :id_class
         )
-            
-    ');
+        
+        ');
 
-        $query->execute($newgod);
+        $query->bindValue(':name', $this->name, \PDO::PARAM_STR);
+        $query->bindValue(':title', $this->title, \PDO::PARAM_STR);
+        $query->bindValue(':description', $this->description, \PDO::PARAM_STR);
+        $query->bindValue(':mythologie', $this->mythologie, \PDO::PARAM_STR);
+        $query->bindValue(':picture_god', $this->img, \PDO::PARAM_STR);
+        $query->bindValue(':id_class', $this->class, \PDO::PARAM_INT);
+        
+        $query->execute();
 
         
     }
 
-    public static function update($editgod = array())
+    public function save()
     {
         $pdo = connect();
 
         $query = $pdo->prepare('
             UPDATE `' . self::TABLE . '`
             SET `name`=:name,`title`=:title,`description`=:description,`mythologie`=:mythologie,`picture_god`=:picture_god,`id_class`=:id_class
-            
-    ');
+            WHERE id_god = :id_god
+        ');
+        $query->bindValue(':id_god', $this->id, \PDO::PARAM_INT);
+        $query->bindValue(':name', $this->name, \PDO::PARAM_STR);
+        $query->bindValue(':title', $this->title, \PDO::PARAM_STR);
+        $query->bindValue(':description', $this->description, \PDO::PARAM_STR);
+        $query->bindValue(':mythologie', $this->mythologie, \PDO::PARAM_STR);
+        $query->bindValue(':picture_god', $this->img, \PDO::PARAM_STR);
+        $query->bindValue(':id_class', $this->class, \PDO::PARAM_INT);
 
-        $query->execute($editgod);
-        return $query;
+        $query->execute();
+        
     }
 
     public function delete() : void
@@ -241,7 +251,7 @@ class God
      */ 
     public function setName($name)
     {
-        $this->name = $name;
+        $this->name = trim($name);
 
         return $this;
     }
@@ -261,7 +271,7 @@ class God
      */ 
     public function setTitle($title)
     {
-        $this->title = $title;
+        $this->title = trim($title);
 
         return $this;
     }
@@ -281,7 +291,7 @@ class God
      */ 
     public function setDescription($description)
     {
-        $this->description = $description;
+        $this->description = trim($description);
 
         return $this;
     }
@@ -301,7 +311,7 @@ class God
      */ 
     public function setMythologie($mythologie)
     {
-        $this->mythologie = $mythologie;
+        $this->mythologie = trim($mythologie);
 
         return $this;
     }
@@ -321,7 +331,7 @@ class God
      */ 
     public function setImg($img)
     {
-        $this->img = $img;
+        $this->img = trim($img);
 
         return $this;
     }
@@ -341,7 +351,7 @@ class God
      */ 
     public function setClass($class)
     {
-        $this->class = $class;
+        $this->class = intval($class);
 
         return $this;
     }
@@ -361,7 +371,7 @@ class God
      */ 
     public function setId($id)
     {
-        $this->id = $id;
+        $this->id = intval($id);
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <div class="container bg-light">
     <div class="m-5">
-        <form action="add_god.php" method="post">
+        <form action="add.php" method="post">
             <fieldset>
                 <h1>Ajouter un dieu</h1>
                 <?= $message ?>
@@ -29,7 +29,7 @@
 
                     <div class="mb-3 col">
                         <label for="id_class" class="form-label">Classe</label>
-                        <select class="form-select fs-4" id_class" aria-describedby="help-user">
+                        <select class="form-select fs-4"  aria-describedby="help-user" name="id_class">
                             <option value="" class="fs-4" selected disabled>Choisir la classe du dieu</option>
                             <?php foreach ($aClasses as $oClasse) : ?>
                                 <option class="fs-4" value="<?= intval($oClasse->getId()) ?>">

@@ -2,11 +2,9 @@
     <h1 class="text-light">Randomizer SMITE</h1>
     <div class="row justify-content-center">
         <div id="god">
-            <?php foreach ($aGods as $oGod) : ?>
-                <p class="god_name text-light"><?= htmlspecialchars($oGod->getName()) ?></p>
-                <p class="god_title text-light"><?= htmlspecialchars($oGod->getTitle()) ?></p>
-                <img onmouseover="montre('<?php echo (htmlspecialchars($oGod->getDescription())); ?>')" onmouseout="cache()" class="god_picture" src="<?= htmlspecialchars($oGod->getImg()) ?>">
-            <?php endforeach ?>
+            <p class="god_name text-light"><?= htmlspecialchars($oGod->getName()) ?></p>
+            <p class="god_title text-light"><?= htmlspecialchars($oGod->getTitle()) ?></p>
+            <img onmouseover="montre('<?php echo (htmlspecialchars($oGod->getDescription())); ?>')" onmouseout="cache()" class="god_picture" src="<?= htmlspecialchars($oGod->getImg()) ?>">
 
         </div>
         <div id="items">

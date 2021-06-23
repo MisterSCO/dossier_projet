@@ -4,6 +4,7 @@ ini_set("display_errors", 1);
 
 use Entity\God;
 use Entity\Item;
+use Entity\Classe;
 
 require_once 'config/config.php';
 require_once('_bootstrap.php');
@@ -14,21 +15,13 @@ $img_path = PATH_MEDIAS . MEDIAS_DEFAULT . '/';
 $theme_default = THEME_PATH . THEME_DEFAULT . '/';
 
 // Appele de la fonction pour choisir un dieu aléatoirement dans la base de données
-$aGods = God::getRandom();
+$oGod = God::getRandom();
 
-
+$oClasse = Classe::get($oGod->getClass());
 /* var_dump($aGods); */
 
-foreach ($aGods as $god) {
-    if ($god->getID() == 1 || $god->getId() == 3) {
-        $id_item = 2;
-    } else {
-        $id_item = 1;
-    }
-}
 
-
-$query_items = Item::getRandomItemsById($id_item);
+$query_items = Item::getRandomItemsById($oClasse->getType());
 
 // Affichage
 $template = 'index';

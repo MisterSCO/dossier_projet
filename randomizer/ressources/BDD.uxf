@@ -1,0 +1,33 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>865</x><y>280</y><w>210</w><h>60</h></coordinates><panel_attributes>_type_
+--
+id_type: int(11)
+label: varchar(32)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>485</x><y>250</y><w>210</w><h>70</h></coordinates><panel_attributes>_class_
+--
+id_class:  int(11)
+label: varchar(32)
+id_type: int(11)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>65</x><y>140</y><w>210</w><h>140</h></coordinates><panel_attributes>_gods_
+--
+id_god: int(11)
+name: varchar(32)
+title: varchar(32)
+description: text
+mythologie: varchar(32)
+picture_god: varchar(256)
+id_class: int(11)
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>865</x><y>480</y><w>210</w><h>110</h></coordinates><panel_attributes>_items_
+--
+id_item: int(11)
+name: varchar(32)
+passif: text
+picture_item: varchar(32)
+id_type: varchar(32)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>260</y><w>230</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=0..*
+m2=1
+
+</panel_attributes><additional_attributes>10;20;210;20</additional_attributes></element><element><id>Relation</id><coordinates><x>690</x><y>300</y><w>190</w><h>40</h></coordinates><panel_attributes>lt=-
+m1=0..*
+m2=1</panel_attributes><additional_attributes>10;10;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>970</x><y>330</y><w>50</w><h>170</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..*</panel_attributes><additional_attributes>10;10;10;150</additional_attributes></element></diagram>

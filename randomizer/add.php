@@ -16,7 +16,7 @@ init_session();
 
 
 if (is_logged() !== true) {
-    header('Location:index.php');
+    header('Location: index.php');
     exit;
 }
 
@@ -30,18 +30,15 @@ if (!empty($_POST)) {
         $message = '* Veuillez remplir tout les champs';
     } else {
 
-        $god = array();
-
-        //trim() - Supprime les espaces (ou autre caractères) en début et fin de chaîne
-        $god['name'] = htmlspecialchars($_POST['name']);
-        $god['title'] = htmlspecialchars($_POST['title']);
-        $god['mythologie'] = htmlspecialchars(trim($_POST['mythologie']));
-        $god['id_class'] = intval($_POST['id_class']);
-        $god['picture_god'] = htmlspecialchars(trim($_POST['picture_god']));
-        $god['description'] = htmlspecialchars($_POST['description']);
-
-
-        God::create($god);
+        /* Création d'un nouvel objet */
+        $oGod = new God();
+        $oGod->setName(htmlspecialchars($_POST['name']));
+        $oGod->setTitle(htmlspecialchars($_POST['title']));
+        $oGod->setMythologie(htmlspecialchars($_POST['mythologie']));
+        $oGod->setClass(htmlspecialchars($_POST['id_class']));
+        $oGod->setImg(htmlspecialchars($_POST['picture_god']));
+        $oGod->setDescription(htmlspecialchars($_POST['description']));
+        $oGod->create();
 
         header('Location: admin_god.php');
     }
@@ -49,5 +46,5 @@ if (!empty($_POST)) {
 
 
 /* Partie inclusion de la vue */
-$template = 'add_god';
+$template = 'add';
 include_once $theme_default . 'layout.phtml';
