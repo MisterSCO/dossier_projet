@@ -153,7 +153,7 @@ class God
 
     public function create()
     {
-        $pdo = connect();
+        $pdo = DbManager::connect();
 
         $query = $pdo->prepare('
             INSERT INTO `' . self::TABLE . '`(
@@ -185,7 +185,7 @@ class God
 
     public function save()
     {
-        $pdo = connect();
+        $pdo = DbManager::connect();
 
         $query = $pdo->prepare('
             UPDATE `' . self::TABLE . '`
@@ -208,7 +208,7 @@ class God
     public function delete() : void
     {
         // Connexion à la BDD
-        $pdo = connect();
+        $pdo = DbManager::connect();
         // préparationde la requete
         $query = $pdo->prepare('
             DELETE 
@@ -225,18 +225,31 @@ class God
 
     public static function search($search)
     {
-        $pdo = connect();
+        $pdo = DbManager::connect();
 
         $query = $pdo->prepare('
-            SELECT *
-            FROM `gods`
-            INNER JOIN class ON gods.id_class = class.id_class
-            WHERE name LIKE  "%' . $search . '%" OR label LIKE "%' . $search .'%" OR title LIKE "%' . $search . '%"
-            
+            SELECT 
+                *
+            FROM `' . self::TABLE . '` 
+            INNER JOIN class ON `' . self::TABLE . '`.id_class = class.id_class
+            WHERE name LIKE :name OR title LIKE :title OR label LIKE :label
+            ORDER BY `id_god` ASC
         ');
 
+        $query->bindValue(':name', '%' . $search . '%', \PDO::PARAM_STR);
+        $query->bindValue(':title', '%' . $search . '%', \PDO::PARAM_STR);
+        $query->bindValue(':label', '%' . $search . '%', \PDO::PARAM_STR);
+        
+
         $query->execute();
-        return $query;
+
+        $aList = array();
+
+        while ($aGod = $query->fetch()) {
+            $aList[] = (new God())->hydrate($aGod);
+        }
+
+        return $aList;
     }
 
 

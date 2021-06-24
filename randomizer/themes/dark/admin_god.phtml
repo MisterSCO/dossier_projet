@@ -4,11 +4,11 @@
         <header class="bg-light p-1 rounded text-center">
             <h1>Tableau de bord</h1>
             <p>Gestion des dieux</p>
-            <form class="d-flex col-sm-3" methode="get">
-                <input class="form-control form-control-lg search fs-2" name="search" type="search" placeholder="Rechercher via le nom, le titre ou la classe" aria-label="Search" value="<?php if (!empty($_GET['search'])) {
+            <form class="d-flex col-sm-4" methode="get">
+                <input class="form-control form-control-lg search fs-4" name="search" type="search" placeholder="Rechercher via le nom, le titre ou la classe" aria-label="Search" value="<?php if (!empty($_GET['search'])) {
                                                                                                                                                                                                 echo $_GET['search'];
                                                                                                                                                                                             }; ?>">
-                <button class="btn btn-outline-success fs-3" type="submit">Go</button>
+                <button class="btn btn-outline-success fs-2" type="submit">Recherche</button>
             </form>
         </header>
         <div class="bg-light table-responsive">
@@ -20,6 +20,7 @@
                         <th>Nom</th>
                         <th>Classe</th>
                         <th>Titre du dieu</th>
+                        <th>Mythologie</th>
                         <th>Description du dieu</th>
                         <th>Lien image du dieu</th>
                         <th class="text-center">Modifier</th>
@@ -34,7 +35,8 @@
                             <td><?= htmlspecialchars($oGod->getName()) ?></td>
                             <td><?= htmlspecialchars($oGod->getClass_label()) ?></td>
                             <td><?= htmlspecialchars($oGod->getTitle()) ?></td>
-                            <td><?= substr(htmlspecialchars($oGod->getDescription()), 0, 50) ?>...</td>
+                            <td><?= htmlspecialchars($oGod->getMythologie()) ?></td>
+                            <td><?= substr(htmlspecialchars($oGod->getDescription()), 0, 30) ?>...</td>
                             <td><?= substr(htmlspecialchars($oGod->getImg()), 0, 31) ?>...</td>
                             <td class="text-center">
                                 <a href="edit.php?id=<?= intval($oGod->getId()) ?>" class="btn btn-info text-light" title="Editer l'article">

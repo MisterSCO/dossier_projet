@@ -5,7 +5,7 @@ label: varchar(32)</panel_attributes><additional_attributes></additional_attribu
 --
 id_class:  int(11)
 label: varchar(32)
-id_type: int(11)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>65</x><y>140</y><w>210</w><h>140</h></coordinates><panel_attributes>_gods_
+id_type: int(11)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>65</x><y>150</y><w>210</w><h>140</h></coordinates><panel_attributes>_gods_
 --
 id_god: int(11)
 name: varchar(32)

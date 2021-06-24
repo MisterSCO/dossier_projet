@@ -1,7 +1,7 @@
 <?php
 
 require_once 'config/config.php';
-require_once('model/sessions.php');
+require_once('inc/sessions.php');
 
 $theme_default = THEME_PATH . THEME_DEFAULT . '/';
 
@@ -11,7 +11,7 @@ if (
     array_key_exists('email', $_POST)
     && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) !== false
 ) {
-    require_once('model/functions.php');
+    require_once('inc/functions.php');
 
 
     $user = getAdminbyLogin(htmlspecialchars(trim($_POST['email'])));
@@ -21,7 +21,7 @@ if (
         !empty($user)
         && password_verify(trim($_POST['pass']), $user['pass']) === true
     ) {
-        require_once 'model/sessions.php';
+        require_once 'inc/sessions.php';
 
         init_session();
 

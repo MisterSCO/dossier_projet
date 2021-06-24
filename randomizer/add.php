@@ -4,8 +4,8 @@ use Entity\God;
 use Entity\Classe;
 
 require_once 'config/config.php';
-require_once 'model/functions.php';
-require_once 'model/sessions.php';
+require_once 'inc/functions.php';
+require_once 'inc/sessions.php';
 require_once '_bootstrap.php';
 
 

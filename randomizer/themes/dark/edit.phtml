@@ -1,8 +1,12 @@
+<header class="bg-light p-1 rounded text-center">
+    <h1>Tableau de bord</h1>
+    <p>Modifier le dieu sélectionné</p>
+    </form>
+</header>
 <div class="container bg-light">
     <div class="m-5">
         <form action="edit.php" method="post">
             <fieldset>
-                <h1>Modifier le dieu</h1>
                 <?= $message ?>
                 <input type="hidden" name="id_god" value="<?= $aFormDatas['id_god'] ?>">
                 <div class="row">
@@ -45,7 +49,7 @@
                     <textarea name="description" id="description" class="form-control fs-4" cols="10" rows="10"><?= htmlspecialchars($aFormDatas['description']) ?></textarea>
                 </div>
             </fieldset>
-            <input type="submit" value="Envoyer">
+            <input class="btn btn-success fs-4 ms-4" type="submit" value="Envoyer">
         </form>
     </div>
 </div>

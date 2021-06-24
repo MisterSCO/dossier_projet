@@ -11,8 +11,7 @@
             <?php while ($items = $query_items->fetch()) : ?>
                 <div class="item">
                     <p class="item_name text-light"><?= htmlspecialchars($items['name']) ?></p>
-                    <img onmouseover="montre('<?php if (!empty($items['passif'])) {echo (htmlspecialchars($items['passif']));} else {echo ("Cet objet n\'a pas de passif");} ?>')" 
-                    onmouseout="cache()" class="item_picture" src="<?= htmlspecialchars($items['picture_item']) ?>">
+                    <img onmouseover="montre('<?php if (!empty($items['passif'])) {echo (htmlspecialchars($items['passif']));} else {echo ("Cet objet n\'a pas de passif");} ?>')" onmouseout="cache()" class="item_picture" src="<?= htmlspecialchars($items['picture_item']) ?>">
                 </div>
 
             <?php endwhile ?>

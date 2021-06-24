@@ -1,8 +1,12 @@
+<header class="bg-light p-1 rounded text-center">
+    <h1>Tableau de bord</h1>
+    <p>Ajouter un dieu</p>
+    </form>
+</header>
 <div class="container bg-light">
     <div class="m-5">
         <form action="add.php" method="post">
             <fieldset>
-                <h1>Ajouter un dieu</h1>
                 <?= $message ?>
                 <div class="row">
                     <div class="mb-3 col">
@@ -29,7 +33,7 @@
 
                     <div class="mb-3 col">
                         <label for="id_class" class="form-label">Classe</label>
-                        <select class="form-select fs-4"  aria-describedby="help-user" name="id_class">
+                        <select class="form-select fs-4" aria-describedby="help-user" name="id_class">
                             <option value="" class="fs-4" selected disabled>Choisir la classe du dieu</option>
                             <?php foreach ($aClasses as $oClasse) : ?>
                                 <option class="fs-4" value="<?= intval($oClasse->getId()) ?>">
@@ -50,11 +54,11 @@
                 <div class="mb-3">
                     <label for="description" class="form-label">L'histoire du dieu</label>
                     <textarea name="description" id="description" class="form-control fs-4" cols="10" rows="10"><?php if (!empty($_POST)) {
-                                                                                                echo $_POST['description'];
-                                                                                            } ?></textarea>
+                                                                                                                    echo $_POST['description'];
+                                                                                                                } ?></textarea>
                 </div>
             </fieldset>
-            <input type="submit" value="Envoyer">
+            <input class="btn btn-success fs-4 ms-4" type="submit" value="Envoyer">
         </form>
     </div>
 </div>

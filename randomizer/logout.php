@@ -1,6 +1,6 @@
 <?php
 
-require_once 'model/sessions.php';
+require_once 'inc/sessions.php';
 init_session();
 
 clean_session();

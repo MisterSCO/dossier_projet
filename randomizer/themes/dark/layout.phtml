@@ -6,15 +6,13 @@
     <title>Smite Random Build</title>
     <meta name="description" content="Outil qui choisis aléatoirement votre personnage et vos objets">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<?= $theme_default . "icon/smite_lightning.png" ?>">
 
-    <link rel=" stylesheet" href="<?= $theme_default . "css/bootstrap.min.css" ?>">
-    <link rel=" stylesheet" href="<?= $theme_default . "css/main.min.css" ?>">
+    <link rel="stylesheet" href="<?= $theme_default . "css/bootstrap.min.css" ?>">
+    <link rel="stylesheet" href="<?= $theme_default . "css/main.min.css" ?>">
 
 </head>
-<!--
-        Donner à body un comportement de flex-column afin de positionner le footer en bas (voir suite, cela ne suffit pas !)
-        Donner à body un padding-bottom afin de
-    -->
+
 
 <body class="min-vh-100 d-flex flex-column">
     <header class="navbar navbar-expand-sm navbar-dark bg-dark px-4">
@@ -35,18 +33,12 @@
         </div>
     </header>
 
-    <!--
-        1. Main, en tant que flex-item de body doit occuper toute la place restante (entre header et footer) -> flex-grow
-        2. Pour que la nav adopte une hauteur de 100%, il faut que row occupe 100% de hauteur aussi (height : 100% ne marche pas !) : donc on donne aussi à main un coportement flex-column, de manière à donner à row un flex-grow -> row occupe 100% de l'espace dispo
-
-        row est déjà en flex-row
-        Sur l'axe secondaire, stretch et la valeur par défaut : tout c'est Flex-item (nav et section) occument donc 100% de sa hauteur(il fallait donc que row occupe 100% du main, lequel devait occuper aussi 100% du body)
-
-        3. Donner à main un padding-bottom afin d'éviter que la flèche pour remonter (dans le footer), positionnée en absolue, ne se superpose au contenu
-    -->
+    
     <main class="container-fluid d-flex flex-column pb-5 main">
         <div id="curseur" class="infobulle"></div>
-        <?php if($template !== 'index') {include $theme_default . 'nav_admin.phtml';} ?>
+        <?php if ($template !== 'index') {
+            include $theme_default . 'nav_admin.phtml';
+        } ?>
         <?php include  $template . '.phtml' ?>
     </main>
     <footer class="p-3 mt-auto mb-0 position-relative text-center bg-dark">
