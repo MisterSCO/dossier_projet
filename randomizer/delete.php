@@ -35,4 +35,4 @@ if (intval($_GET['id']) == $aGod->getId()) {
 
 
 /* Rechargement de la page */
-header('Location: admin_god.php');
+header('Location: admin.php');

@@ -4,7 +4,6 @@ use Entity\God;
 use Entity\Classe;
 
 require_once 'config/config.php';
-require_once 'inc/functions.php';
 require_once 'inc/sessions.php';
 require_once '_bootstrap.php';
 
@@ -40,7 +39,7 @@ if (!empty($_POST)) {
         $oGod->setDescription(htmlspecialchars($_POST['description']));
         $oGod->create();
 
-        header('Location: admin_god.php');
+        header('Location: admin.php');
     }
 }
 

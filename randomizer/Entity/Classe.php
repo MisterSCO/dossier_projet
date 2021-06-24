@@ -27,7 +27,6 @@ class Classe
         $this->setLabel($aData['label']);
         $this->setType($aData['id_type']);
 
-
         return $this;
     }
 

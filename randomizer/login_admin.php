@@ -1,7 +1,10 @@
 <?php
 
+use Entity\User;
+
 require_once 'config/config.php';
 require_once('inc/sessions.php');
+require_once '_bootstrap.php';
 
 $theme_default = THEME_PATH . THEME_DEFAULT . '/';
 
@@ -11,15 +14,15 @@ if (
     array_key_exists('email', $_POST)
     && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) !== false
 ) {
-    require_once('inc/functions.php');
+    
 
 
-    $user = getAdminbyLogin(htmlspecialchars(trim($_POST['email'])));
+    $user = User::getAdminbyLogin(htmlspecialchars(trim($_POST['email'])));
 
 
     if (
         !empty($user)
-        && password_verify(trim($_POST['pass']), $user['pass']) === true
+        && password_verify($_POST['pass'], $user->getPass()) === true
     ) {
         require_once 'inc/sessions.php';
 
@@ -30,11 +33,10 @@ if (
         //Remplace l'identifiant de session courant par un nouveau
         //session_regenerate_id();
 
-        $_SESSION['id_admin'] = intval($user['id_admin']);
-        $_SESSION['pseudo'] = htmlspecialchars($user['pseudo']);
+        $_SESSION['id_admin'] = intval($user->getId());
 
 
-        header('Location: admin_god.php');
+        header('Location: admin.php');
         exit;
     }
 

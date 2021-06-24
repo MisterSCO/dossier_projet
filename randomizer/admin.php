@@ -3,7 +3,6 @@
 use Entity\God;
 
 require_once 'config/config.php';
-require_once 'inc/functions.php';
 require_once 'inc/sessions.php';
 require_once '_bootstrap.php';
 
@@ -33,5 +32,5 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
 }
 
 /* Partie inclusion de la vue */
-$template = 'admin_god';
+$template = 'admin';
 include_once $theme_default . 'layout.phtml';
