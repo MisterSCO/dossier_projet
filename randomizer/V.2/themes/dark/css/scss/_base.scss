@@ -1,0 +1,114 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size      : 62.5%;
+	/* Ramène à 10px */
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family       : Arial, Helvetica, sans-serif;
+	font-size : 2em;
+	line-height: 1.6;
+	overflow-x       : hidden;
+	background-image : url("../../dark/background/woven_1920.jpg");
+	background-repeat: no-repeat;
+	background-size  : cover;
+	
+}
+
+
+#random{
+
+	h1{
+		text-align: center;
+	}
+	
+
+	#god{
+		text-align: center;
+
+		.god_picture {
+			max-width : 394px;
+			max-height: 526px;
+		}
+	}
+
+
+	#items {
+		display: flex;
+		justify-content: center;
+		padding: 2rem;
+		text-align: center;
+
+		.item_picture {
+			max-width: 128px;
+		}
+
+		.item{      
+			padding: 0 2rem;
+		}
+	}
+}
+
+.banner-nav .is-current {
+	color: aqua;
+}
+
+
+
+
+.randomize-button {
+	display: block;
+	margin: 0 auto;
+	line-height     : 2.5;
+	padding         : 0 1rem;
+	font-size       : 1.4em;
+	text-align      : center;
+	color           : #fff;
+	text-shadow     : 1px 1px 1px #000;
+	border-radius   : 10px;
+	background-color: rgb(36, 35, 35);
+	background-image: linear-gradient(to top left,
+			rgba(0, 0, 0, .2),
+			rgba(0, 0, 0, .2) 30%,
+			rgba(0, 0, 0, 0));
+	box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+		inset -2px -2px 3px rgba(0, 0, 0, .6);
+
+}
+
+.infobulle {
+	position        : absolute;
+	visibility      : hidden;
+	max-width: 700px;
+	border          : 1px solid rgb(255, 255, 255);
+	padding         : 10px;
+	font-family     : Verdana, Arial;
+	color: white;
+	font-size       : 0.9em;
+	background-color: #1a1b2c;
+}
+
+.randomize-button:hover {
+	background-color: rgb(0, 0, 0);
+}
+
+.randomize-button:active {
+	box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+		inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+
+.search{
+	margin-left: 1rem;
+}
+
+td{
+	table-layout: fixed;
+	width: 1em;
+	white-space: nowrap;
+}
+
