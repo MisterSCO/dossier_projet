@@ -24,4 +24,4 @@ switch ($error) {
 }
 /* Partie inclusion de la vue */
 $template = '404';
-include_once $theme_default . 'layout.phtml';
+include_once $theme_default . 'layout.php';

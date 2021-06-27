@@ -3,7 +3,7 @@ namespace Entity;
 
 use Manager\DbManager;
 
-class User
+class Admin
 {
     /** @var string */
     private const TABLE = 'admin';
@@ -31,7 +31,6 @@ class User
     {
         $pdo = DbManager::connect();
         $query = $pdo->prepare('
-
         SELECT
             *
         FROM `' . self::TABLE . '`
@@ -53,7 +52,7 @@ class User
         }
 
         // Retour de l'objet
-        return (new User())->hydrate($aAdmin);
+        return (new Admin())->hydrate($aAdmin);
     }
 
     /*------------------------ Getter And Setter ------------------------*/

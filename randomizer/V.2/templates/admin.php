@@ -32,4 +32,4 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
 
 /* Partie inclusion de la vue */
 $template = 'admin';
-include_once $theme_default . 'layout.phtml';
+include_once $theme_default . 'layout.php';

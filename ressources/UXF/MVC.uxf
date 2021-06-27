@@ -1,0 +1,11 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>240</x><y>230</y><w>210</w><h>70</h></coordinates><panel_attributes>Vue
+--
+Partie affichage
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>880</x><y>230</y><w>210</w><h>70</h></coordinates><panel_attributes>Modèle
+--
+Partie gestion des données</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>570</x><y>410</y><w>210</w><h>70</h></coordinates><panel_attributes>Contrôleur 
+--
+Partie gestion logique du code</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>560</x><y>620</y><w>220</w><h>70</h></coordinates><panel_attributes>Router
+--
+Fichier: index.php
+Appel les contrôleurs en fonction de l'url</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>770</x><y>290</y><w>240</w><h>180</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-&gt;&gt;&gt;</panel_attributes><additional_attributes>10;160;220;160;220;10</additional_attributes></element><element><id>Relation</id><coordinates><x>340</x><y>290</y><w>250</w><h>180</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;160;230;160</additional_attributes></element><element><id>Relation</id><coordinates><x>660</x><y>470</y><w>30</w><h>170</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;150</additional_attributes></element></diagram>

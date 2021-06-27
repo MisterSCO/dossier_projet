@@ -24,5 +24,5 @@ $oClasse = Classe::get($oGod->getClass());
 $query_items = Item::getRandomItemsById($oClasse->getType());
 
 // Affichage
-$template = 'index';
-include_once $theme_default . 'layout.phtml';
+$template = 'homepage';
+include_once $theme_default . 'layout.php';

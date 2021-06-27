@@ -46,4 +46,4 @@ if (!empty($_POST)) {
 
 /* Partie inclusion de la vue */
 $template = 'add';
-include_once $theme_default . 'layout.phtml';
+include_once $theme_default . 'layout.php';

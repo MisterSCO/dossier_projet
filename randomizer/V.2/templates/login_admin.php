@@ -1,6 +1,6 @@
 <?php
 
-use Entity\User;
+use Entity\Admin;
 
 require_once 'config/config.php';
 require_once('config/sessions.php');
@@ -17,7 +17,7 @@ if (
     
 
 
-    $user = User::getAdminbyLogin(htmlspecialchars(trim($_POST['email'])));
+    $user = Admin::getAdminbyLogin(htmlspecialchars(trim($_POST['email'])));
 
 
     if (
@@ -45,4 +45,4 @@ if (
     $message = 'Email ou Mot de passe incorrecte';
 }
 $template = 'login_admin';
-include_once $theme_default . 'layout.phtml';
+include_once $theme_default . 'layout.php';

@@ -74,4 +74,4 @@ if (!empty($_POST)) {
 
 /* Partie inclusion de la vue */
 $template = 'edit';
-include_once $theme_default . 'layout.phtml';
+include_once $theme_default . 'layout.php';

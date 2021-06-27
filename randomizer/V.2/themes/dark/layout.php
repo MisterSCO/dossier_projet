@@ -37,9 +37,9 @@
     <main class="container-fluid d-flex flex-column pb-5 main">
         <div id="curseur" class="infobulle"></div>
         <?php if ($template !== 'index' && $template !== '404' ) {
-            include $theme_default . 'nav_admin.phtml';
+            include $theme_default . 'nav_admin.php';
         } ?>
-        <?php include  $template . '.phtml' ?>
+        <?php include  $template . '.php' ?>
     </main>
     <footer class="p-3 mt-auto mb-0 position-relative text-center bg-dark">
         <p class="m-0 text-light">Projet réalisé par - &copy;
@@ -54,43 +54,7 @@
     <script src="<?= $theme_default . "js/main.js" ?>"></script>
     <script src="<?= $theme_default . "js/popper.min.js" ?>"></script>
     <script src="<?= $theme_default . "js/bootstrap.min.js" ?>"></script>
-    <script language="javascript" type="text/javascript">
-        function GetId(id) {
-            return document.getElementById(id);
-        }
-        var i = false; // La variable i nous dit si la bulle est visible ou non
-
-        function move(e) {
-            if (i) { // Si la bulle est visible, on calcul en temps reel sa position ideale
-
-                if (document.documentElement.clientWidth > 0) {
-                    GetId("curseur").style.left = 20 + event.x + document.documentElement.scrollLeft + "px";
-                    GetId("curseur").style.top = 10 + event.y + document.documentElement.scrollTop + "px";
-                } else {
-                    GetId("curseur").style.left = 20 + event.x + document.body.scrollLeft + "px";
-                    GetId("curseur").style.top = 10 + event.y + document.body.scrollTop + "px";
-                }
-            }
-        }
-
-
-        function montre(text) {
-            if (i == false) {
-                GetId("curseur").style.visibility = "visible"; // Si il est cacher (la verif n'est qu'une securité) on le rend visible.
-                GetId("curseur").innerHTML = text; // on copie notre texte dans l'élément html
-                i = true;
-            }
-        }
-
-        function cache() {
-            if (i == true) {
-                GetId("curseur").style.visibility = "hidden"; // Si la bulle est visible on la cache
-                i = false;
-            }
-        }
-        document.onmousemove = move; // dès que la souris bouge, on appelle la fonction move pour mettre à jour la position de la bulle.
-        //
-    </script>
+    
 </body>
 
 </html>

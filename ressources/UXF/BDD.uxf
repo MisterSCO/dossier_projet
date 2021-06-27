@@ -30,4 +30,10 @@ m2=1
 m1=0..*
 m2=1</panel_attributes><additional_attributes>10;10;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>970</x><y>330</y><w>50</w><h>170</h></coordinates><panel_attributes>lt=-
 m1=1
-m2=0..*</panel_attributes><additional_attributes>10;10;10;150</additional_attributes></element></diagram>
+m2=0..*</panel_attributes><additional_attributes>10;10;10;150</additional_attributes></element><element><id>UMLClass</id><coordinates><x>385</x><y>450</y><w>210</w><h>110</h></coordinates><panel_attributes>_admin_
+--
+id_admin: int(11)
+email: varchar(100)
+passif: varchar(255)
+
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>

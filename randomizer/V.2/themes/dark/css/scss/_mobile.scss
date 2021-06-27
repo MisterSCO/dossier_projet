@@ -1,0 +1,16 @@
+@media screen and (max-width: 36em) {
+    #random {
+        #god {
+            .god_picture {
+                max-width : 15em;
+            }
+        }
+
+        #items {
+            display: block;
+            .item_picture {
+                max-width: 5em;
+            }
+        }
+    }
+}

@@ -232,12 +232,11 @@ class God
                 *
             FROM `' . self::TABLE . '` 
             INNER JOIN class ON `' . self::TABLE . '`.id_class = class.id_class
-            WHERE name LIKE :name OR title LIKE :title OR label LIKE :label OR mythologie LIKE :mythologie
+            WHERE name LIKE :name OR label LIKE :label OR mythologie LIKE :mythologie
             ORDER BY `id_god` ASC
         ');
 
         $query->bindValue(':name', '%' . $search . '%', \PDO::PARAM_STR);
-        $query->bindValue(':title', '%' . $search . '%', \PDO::PARAM_STR);
         $query->bindValue(':label', '%' . $search . '%', \PDO::PARAM_STR);
         $query->bindValue(':mythologie', '%' . $search . '%', \PDO::PARAM_STR);
         
