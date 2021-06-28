@@ -32,11 +32,9 @@
             </nav>
         </div>
     </header>
-
-    
     <main class="container-fluid d-flex flex-column pb-5 main">
         <div id="curseur" class="infobulle"></div>
-        <?php if ($template !== 'index' && $template !== '404' ) {
+        <?php if ($template !== 'homepage' && $template !== '404' ) {
             include $theme_default . 'nav_admin.php';
         } ?>
         <?php include  $template . '.php' ?>
