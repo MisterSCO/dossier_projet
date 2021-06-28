@@ -26,29 +26,40 @@ body {
 		text-align: center;
 	}
 	
+	.grid{
 
-	#god{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows   : 1fr;
+		gap: 0 2em;
+
+
+		#god {
 		text-align: center;
 
-		.god_picture {
-			max-width : 394px;
-			max-height: 526px;
-		}
-	}
-
-
-	#items {
-		display: flex;
-		justify-content: center;
-		padding: 2rem;
-		text-align: center;
-
-		.item_picture {
-			max-width: 128px;
+			.god_picture {
+				max-width : 394px;
+				max-height: 526px;
+			}
 		}
 
-		.item{      
-			padding: 0 2rem;
+
+		#items {
+			display              : grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows   : 1fr 1fr 1fr;
+			gap: 2em 2em;
+			padding        : 2rem;
+			text-align     : center;
+
+			.item_picture {
+				max-width: 128px;
+				max-height: 128px;
+			}
+
+			.item {
+				padding: 0 2rem;
+			}
 		}
 	}
 }
@@ -62,7 +73,7 @@ body {
 
 .randomize-button {
 	display: block;
-	margin: 0 auto;
+	margin: 0 auto 2rem auto;
 	line-height     : 2.5;
 	padding         : 0 1rem;
 	font-size       : 1.4em;
@@ -81,6 +92,7 @@ body {
 }
 
 .infobulle {
+	z-index: 1000;
 	position        : absolute;
 	visibility      : hidden;
 	max-width: 700px;

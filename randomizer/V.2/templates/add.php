@@ -19,15 +19,30 @@ if (is_logged() !== true) {
     exit;
 }
 
-$message = '';
+$message = '* Tout les champs sont obligatoire';
 
 $aClasses = Classe::getAll();
 
+
+
+
 if (!empty($_POST)) {
 
+    $verifyNameGod = God::VerifyBdd(trim($_POST['name']));
+    $verifyTitleGod = God::VerifyBdd(trim($_POST['title']));
+    $verifyImgGod = God::VerifyBdd(trim($_POST['picture_god']));
+    
+
     if (empty($_POST['name']) || empty($_POST['title']) || empty($_POST['mythologie']) || empty($_POST['id_class'])|| empty($_POST['picture_god']) || empty($_POST['description'])) {
-        $message = '* Veuillez remplir tout les champs';
-    } else {
+        $message = '* Certains champs ne sont pas remplis';
+    } elseif($verifyNameGod) {
+        $message = '* Ce nom de dieu existe déjà';
+    } elseif($verifyTitleGod) {
+        $message = '* Ce titre existe déjà pour '. $verifyTitleGod->getName();
+    } elseif($verifyImgGod) {
+        $message = '* Cette image existe déjà pour '. $verifyImgGod->getName();
+    }
+    else {
 
         /* Création d'un nouvel objet remplis avec les Setter */
         $oGod = new God();

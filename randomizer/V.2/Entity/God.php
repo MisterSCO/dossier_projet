@@ -151,6 +151,42 @@ class God
         return $aList;
     }
 
+
+    /**
+     * VerifyNameBdd
+     *
+     * @return Object|null
+     */
+    public static function VerifyBdd(string $verify) : ?object
+    {
+        $pdo = DbManager::connect();
+
+        //Requete SQL
+        $query = $pdo->prepare('
+                SELECT 
+                    *
+                FROM `' . self::TABLE .'` 
+                INNER JOIN class ON `' . self::TABLE . '`.id_class = class.id_class
+                WHERE name = :name OR title = :title OR picture_god = :picture_god
+            ');
+        $query->bindValue(':name', $verify, \PDO::PARAM_STR);
+        $query->bindValue(':title', $verify, \PDO::PARAM_STR);
+        $query->bindValue(':picture_god', $verify, \PDO::PARAM_STR);
+        $query->execute();
+
+        $aGod = $query->fetch();
+
+        //SI aucun dieu valide
+        if (!$aGod) {
+            // Condition de sortie 
+            return null;
+        }
+
+        // Retour de l'objet
+        return (new God())->hydrate($aGod);
+
+    }
+
     public function create()
     {
         $pdo = DbManager::connect();

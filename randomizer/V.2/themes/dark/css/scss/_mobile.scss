@@ -1,15 +1,21 @@
 @media screen and (max-width: 36em) {
     #random {
-        #god {
-            .god_picture {
-                max-width : 15em;
-            }
-        }
-
-        #items {
+        .grid{
             display: block;
-            .item_picture {
-                max-width: 5em;
+            #god {
+                .god_picture {
+                    max-width : 13em;
+                }
+            }
+
+            #items {
+                .item_name{
+                    font-size: 1.2rem;
+                }
+
+                .item_picture {
+                    max-width: 5em;
+                }
             }
         }
     }

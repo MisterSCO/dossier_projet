@@ -2,7 +2,7 @@
 
 require './vendor/autoload.php';
 require './config/sessions.php';
-$uri = $_SERVER['REQUEST_URI'];
+
 
 
 $router = new AltoRouter();

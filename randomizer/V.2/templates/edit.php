@@ -21,7 +21,7 @@ if (is_logged() !== true) {
 
 $aClasses = Classe::getAll();
 
-$message = '';
+$message = '* Tout les champs sont obligatoire';
 
 if (!empty($_GET['id'])) {
     $oGod = God::get(intval($_GET['id']));
@@ -40,6 +40,11 @@ if (!empty($_GET['id'])) {
 //Si un formulaire est posté
 if (!empty($_POST)) {
 
+    $verifyNameGod = God::VerifyBdd(trim($_POST['name']));
+    $verifyTitleGod = God::VerifyBdd(trim($_POST['title']));
+    $verifyImgGod = God::VerifyBdd(trim($_POST['picture_god']));
+    
+
     $aFormDatas = array(
         'id_god' => htmlspecialchars($_POST['id_god']),
         'name' => htmlspecialchars($_POST['name']),
@@ -51,8 +56,15 @@ if (!empty($_POST)) {
     );
 
     if (empty($_POST['name']) || empty($_POST['title']) || empty($_POST['mythologie']) || empty($_POST['id_class']) || empty($_POST['picture_god']) || empty($_POST['description'])) {
-        $message = '* Veuillez remplir tout les champs';
+        $message = '* Certains champs ne sont pas remplis';
+    } elseif ($verifyNameGod && $verifyNameGod->getId() != $aFormDatas['id_god']) {
+        $message = '* Ce nom de dieu existe déjà';
+    } elseif ($verifyTitleGod && $verifyTitleGod->getId() != $aFormDatas['id_god']) {
+        $message = '* Ce titre existe déjà pour ' . $verifyTitleGod->getName();
+    } elseif ($verifyImgGod && $verifyImgGod->getId() != $aFormDatas['id_god']) {
+        $message = '* Cette image existe déjà pour ' . $verifyImgGod->getName();
     }
+
     else{
 
         $oGod = new God();

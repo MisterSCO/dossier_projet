@@ -1,7 +1,5 @@
 <header class="bg-light p-1 rounded text-center">
-    <h1>Tableau de bord</h1>
-    <p>Modifier le dieu sélectionné</p>
-    </form>
+    <h1>Edition d'un dieu</h1>
 </header>
 <div class="container bg-light">
     <div class="m-5">
