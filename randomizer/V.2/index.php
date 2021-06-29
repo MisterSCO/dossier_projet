@@ -18,7 +18,7 @@ $router->map('GET|POST', '/add', 'add');
 $match = $router->match();
 
 if (is_array($match)) {
-    require "./templates/{$match['target']}.php";
+    require "./controler/{$match['target']}.php";
 } else {
-    require 'templates/404.php';
+    require 'controler/404.php';
 }

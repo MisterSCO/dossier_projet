@@ -28,13 +28,13 @@ class DbManager
 
                 // Affichage des erreurs PDO (à ne pas faire en production)
                 static::$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-            } catch (\Exception $e) {
+            } 
+            // Si problème: Capture de l'erreur et affiche un message
+            catch (\Exception $e) {
                 echo $e->getMessage() . PHP_EOL;
                 die;
             }
         }
-
         return static::$pdo;
     }
-
 }
