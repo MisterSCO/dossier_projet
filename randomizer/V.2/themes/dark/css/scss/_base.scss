@@ -52,6 +52,7 @@ body {
 			padding        : 2rem;
 			text-align     : center;
 
+
 			.item_picture {
 				max-width: 128px;
 				max-height: 128px;
@@ -73,9 +74,9 @@ body {
 
 .randomize-button {
 	display: block;
-	margin: 0 auto 2rem auto;
+	margin: 0 auto 1rem auto;
+	max-width: 5em;
 	line-height     : 2.5;
-	padding         : 0 1rem;
 	font-size       : 1.4em;
 	text-align      : center;
 	color           : #fff;

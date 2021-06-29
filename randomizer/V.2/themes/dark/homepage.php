@@ -1,8 +1,7 @@
 <section id="random" class="container">
     <h1 class="text-light">Randomizer SMITE</h1>
-    <div class="container">
-        <a href=""><button class="randomize-button col-sm-2">Randomize</button></a>
-    </div>
+    <a class="text-light randomize-button" href="">Tirage</a>
+
     <div class="grid">
         <div id="god">
             <p class="god_name text-light"><?= htmlspecialchars($oGod->getName()) ?></p>
