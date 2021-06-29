@@ -9,6 +9,8 @@ require_once '_bootstrap.php';
 $theme_default = THEME_PATH . THEME_DEFAULT . '/';
 
 $message = '';
+$title = 'Connexion';
+$descrip = 'Outil qui choisis aléatoirement votre personnage et vos objets';
 
 if (
     array_key_exists('email', $_POST)

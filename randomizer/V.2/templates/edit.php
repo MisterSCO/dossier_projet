@@ -7,7 +7,8 @@ require_once 'config/config.php';
 require_once 'config/sessions.php';
 require_once '_bootstrap.php';
 
-
+$title = 'Editer un dieu';
+$descrip = 'Editer un dieu déjà existant';
 
 $theme_default = THEME_PATH . THEME_DEFAULT . '/';
 init_session();

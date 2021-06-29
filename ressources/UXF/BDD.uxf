@@ -1,11 +1,11 @@
-<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>845</x><y>200</y><w>210</w><h>60</h></coordinates><panel_attributes>_type_
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>1184</x><y>231</y><w>210</w><h>60</h></coordinates><panel_attributes>_type_
 --
 id_type: int(11)
-label: varchar(32)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>485</x><y>190</y><w>210</w><h>70</h></coordinates><panel_attributes>_class_
+label: varchar(32)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>664</x><y>231</y><w>210</w><h>70</h></coordinates><panel_attributes>_class_
 --
 id_class:  int(11)
 label: varchar(32)
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>65</x><y>150</y><w>210</w><h>140</h></coordinates><panel_attributes>_gods_
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>144</x><y>191</y><w>210</w><h>140</h></coordinates><panel_attributes>_gods_
 --
 id_god: int(11)
 name: varchar(32)
@@ -15,25 +15,47 @@ mythologie: varchar(32)
 picture_god: varchar(256)
 
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>865</x><y>480</y><w>210</w><h>110</h></coordinates><panel_attributes>_items_
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1184</x><y>521</y><w>210</w><h>110</h></coordinates><panel_attributes>_items_
 --
 id_item: int(11)
 name: varchar(32)
 passif: text
 picture_item: varchar(32)
-id_type: varchar(32)
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>200</y><w>230</w><h>50</h></coordinates><panel_attributes>lt=-
-m1=0..*
-m2=1
 
-</panel_attributes><additional_attributes>10;20;210;20</additional_attributes></element><element><id>Relation</id><coordinates><x>690</x><y>220</y><w>170</w><h>40</h></coordinates><panel_attributes>lt=-
-m1=0..*
-m2=1</panel_attributes><additional_attributes>10;10;150;10</additional_attributes></element><element><id>Relation</id><coordinates><x>950</x><y>250</y><w>70</w><h>250</h></coordinates><panel_attributes>lt=-
-m1=1
-m2=0..*</panel_attributes><additional_attributes>10;10;30;230</additional_attributes></element><element><id>UMLClass</id><coordinates><x>385</x><y>450</y><w>210</w><h>110</h></coordinates><panel_attributes>_admin_
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>464</x><y>491</y><w>210</w><h>110</h></coordinates><panel_attributes>_admin_
 --
 id_admin: int(11)
 email: varchar(100)
 passif: varchar(255)
 
-</panel_attributes><additional_attributes></additional_attributes></element></diagram>
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>689</x><y>107</y><w>140</w><h>70</h></coordinates><panel_attributes>Note: La classe du 
+personnage définie
+sa catégorie
+
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>149</x><y>97</y><w>140</w><h>70</h></coordinates><panel_attributes>Note: Il s'agit de l'entité 
+des personnages
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>449</x><y>240</y><w>120</w><h>60</h></coordinates><panel_attributes>Appartenir
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>349</x><y>251</y><w>120</w><h>50</h></coordinates><panel_attributes>lt=-
+m2=1,1
+
+</panel_attributes><additional_attributes>100;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>559</x><y>251</y><w>120</w><h>60</h></coordinates><panel_attributes>lt=-
+
+m2=0,n
+
+</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>959</x><y>240</y><w>120</w><h>60</h></coordinates><panel_attributes>A pour type
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>869</x><y>251</y><w>110</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1,1
+</panel_attributes><additional_attributes>10;20;90;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1069</x><y>251</y><w>130</w><h>50</h></coordinates><panel_attributes>lt=-
+m2=0,n
+</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>UMLNote</id><coordinates><x>1189</x><y>117</y><w>200</w><h>70</h></coordinates><panel_attributes>Note: Le type permet de relier 
+les objets aux classes, et de définir 
+si ils sont physiques ou magiques
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>1229</x><y>380</y><w>120</w><h>60</h></coordinates><panel_attributes>A pour type
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1279</x><y>281</y><w>50</w><h>120</h></coordinates><panel_attributes>lt=-
+m1=0,n
+m2=</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>1279</x><y>431</y><w>50</w><h>110</h></coordinates><panel_attributes>lt=-
+m1=
+m2=1,1</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>UMLNote</id><coordinates><x>959</x><y>557</y><w>170</w><h>50</h></coordinates><panel_attributes>Note: L'entité items
+représente les objets du jeu
+
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element></diagram>

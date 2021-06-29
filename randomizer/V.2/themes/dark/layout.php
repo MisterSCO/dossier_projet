@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Smite Random Build</title>
-    <meta name="description" content="Outil qui choisis aléatoirement votre personnage et vos objets">
+    <title><?= $title ?></title>
+    <meta name="description" content="<?= $descrip ?>">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<?= $theme_default . "icon/smite_lightning.png" ?>">
 
@@ -34,7 +34,7 @@
     </header>
     <main class="container-fluid d-flex flex-column pb-5 main">
 
-        <?php if ($template !== 'homepage' && $template !== '404') {
+        <?php if ($template !== 'homepage' && $template !== '404' && $template !== 'login_admin') {
             include $theme_default . 'nav_admin.php';
         } ?>
         <?php include  $template . '.php' ?>
@@ -45,7 +45,7 @@
             <a href="https://www.linkedin.com/in/lecomte-loic/" class="text-light" target="_blank">Loïc LECOMTE</a>
         </p>
         <p class="m-0 text-light">Nous remercions les auteurs des images présentées sur ce site, récoltées sur
-            <a class="text-light" href="https://www.smitegame.com">Smite</a>
+            <a class="text-light" href="https://www.smitegame.com" target="_blank">Smite</a>
         </p>
 
     </footer>

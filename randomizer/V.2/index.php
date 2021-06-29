@@ -22,5 +22,3 @@ if (is_array($match)) {
 } else {
     require 'templates/404.php';
 }
-
-

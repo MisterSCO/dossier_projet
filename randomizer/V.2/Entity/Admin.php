@@ -43,16 +43,16 @@ class Admin
 
         // Lecture de la réponse :
         //Stockage da la ligne dans le tableau $aGod
-        $aAdmin = $query->fetch();
+        $oAdmin = $query->fetch();
 
         //SI aucun dieu valide
-        if (!$aAdmin) {
+        if (!$oAdmin) {
             // Condition de sortie 
             return null;
         }
 
         // Retour de l'objet
-        return (new Admin())->hydrate($aAdmin);
+        return (new Admin())->hydrate($oAdmin);
     }
 
     /*------------------------ Getter And Setter ------------------------*/

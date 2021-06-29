@@ -6,7 +6,8 @@ require_once 'config/config.php';
 require_once 'config/sessions.php';
 require_once '_bootstrap.php';
 
-
+$title = 'Tableau de bord';
+$descrip = 'Gestion des dieux';
 
 $theme_default = THEME_PATH . THEME_DEFAULT . '/';
 

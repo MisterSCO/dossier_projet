@@ -1,11 +1,20 @@
-<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>240</x><y>230</y><w>210</w><h>70</h></coordinates><panel_attributes>Vue
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>860</x><y>80</y><w>210</w><h>70</h></coordinates><panel_attributes>Vue
 --
 Partie affichage
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>880</x><y>230</y><w>210</w><h>70</h></coordinates><panel_attributes>Modèle
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>860</x><y>440</y><w>210</w><h>70</h></coordinates><panel_attributes>Modèle
 --
-Partie gestion des données</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>570</x><y>410</y><w>210</w><h>70</h></coordinates><panel_attributes>Contrôleur 
+Gère les échanges avec la BDD</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>860</x><y>260</y><w>210</w><h>70</h></coordinates><panel_attributes>Contrôleur 
 --
-Partie gestion logique du code</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>560</x><y>620</y><w>220</w><h>70</h></coordinates><panel_attributes>Router
+Partie gestion logique du code</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>460</x><y>260</y><w>230</w><h>70</h></coordinates><panel_attributes>Router
 --
 Fichier: index.php
-Appel les contrôleurs en fonction de l'url</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>770</x><y>290</y><w>240</w><h>180</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-&gt;&gt;&gt;</panel_attributes><additional_attributes>10;160;220;160;220;10</additional_attributes></element><element><id>Relation</id><coordinates><x>340</x><y>290</y><w>250</w><h>180</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;160;230;160</additional_attributes></element><element><id>Relation</id><coordinates><x>660</x><y>470</y><w>30</w><h>170</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;150</additional_attributes></element></diagram>
+Appel les contrôleurs en fonction de l'url</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>870</x><y>630</y><w>180</w><h>80</h></coordinates><panel_attributes>Base de données</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>950</x><y>500</y><w>80</w><h>150</h></coordinates><panel_attributes>lt=&lt;-&gt;
+Requêtes</panel_attributes><additional_attributes>10;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>1040</x><y>320</y><w>140</w><h>140</h></coordinates><panel_attributes>lt=&lt;-
+Envoie des données</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>870</x><y>320</y><w>150</w><h>140</h></coordinates><panel_attributes>lt=&lt;-
+Demande des données</panel_attributes><additional_attributes>10;120;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>950</x><y>140</y><w>180</w><h>140</h></coordinates><panel_attributes>lt=&lt;-
+Envoie les données traitées</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>260</y><w>230</w><h>70</h></coordinates><panel_attributes>
+Client
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>150</x><y>110</y><w>730</w><h>170</h></coordinates><panel_attributes>lt=&lt;-
+Envoie la page demandée</panel_attributes><additional_attributes>10;150;10;10;710;10</additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>280</y><w>220</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+URL</panel_attributes><additional_attributes>200;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>680</x><y>280</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>180;20;10;20</additional_attributes></element></diagram>
