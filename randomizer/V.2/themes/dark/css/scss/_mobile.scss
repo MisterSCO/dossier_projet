@@ -1,16 +1,25 @@
 @media screen and (max-width: 36em) {
-    #random {
+
+    td {
+        table-layout: fixed;
+        width       : 1em;
+        white-space : nowrap;
+    }
+
+    .random {
         .grid{
             
             display: block;
 
-            #god {
+            .god {
                 .god_picture {
                     max-width : 16em;
                 }
             }
 
-            #items {
+            .items {
+                
+
                 .item_name{
                     font-size: 1.2rem;
                 }
