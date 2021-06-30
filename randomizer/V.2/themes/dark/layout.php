@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title><?= $title ?></title>
+    <title><?= $title ?> Smite Random Build</title>
     <meta name="description" content="<?= $descrip ?>">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<?= $theme_default . "icon/smite_lightning.png" ?>">

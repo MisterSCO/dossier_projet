@@ -4,6 +4,9 @@ require_once 'config/config.php';
 $theme_default = THEME_PATH . THEME_DEFAULT . '/';
 // Pour bien faire, il faudrait tester le type d'erreur avec un switch par exemple
 
+$title = 'Page d\'erreur |';
+$descrip = 'Mauvaise direction, merci de revenir a l\'accueil';
+
 $http_response = http_response_code();
 $error = array_key_exists('er', $_GET) ? intval($_GET['er']) : $http_response;
 

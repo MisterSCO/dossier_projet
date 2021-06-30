@@ -7,7 +7,7 @@ require_once 'config/config.php';
 require_once 'config/sessions.php';
 require_once '_bootstrap.php';
 
-$title = 'Ajouter un dieu';
+$title = 'Ajouter un dieu |';
 $descrip = 'Ajouter un dieu manquant';
 
 $theme_default = THEME_PATH . THEME_DEFAULT . '/';

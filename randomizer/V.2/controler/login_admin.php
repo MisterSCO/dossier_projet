@@ -9,8 +9,13 @@ require_once '_bootstrap.php';
 $theme_default = THEME_PATH . THEME_DEFAULT . '/';
 
 $message = '';
-$title = 'Connexion';
+$title = 'Connexion |';
 $descrip = 'Outil qui choisis aléatoirement votre personnage et vos objets';
+
+if (is_logged() == true) {
+    header('Location: /admin');
+    exit;
+}
 
 if (
     array_key_exists('email', $_POST)

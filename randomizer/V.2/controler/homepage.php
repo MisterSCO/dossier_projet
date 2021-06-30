@@ -6,7 +6,7 @@ use Entity\God;
 use Entity\Item;
 use Entity\Classe;
 
-$title = 'Smite Random Build';
+$title = '';
 $descrip = 'Support de sélection aléatoirement votre personnage et vos objets pour le jeu SMITE';
 
 require_once 'config/config.php';
