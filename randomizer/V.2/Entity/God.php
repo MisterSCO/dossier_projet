@@ -307,7 +307,7 @@ class God
      */ 
     public function setName($name)
     {
-        $this->name = trim($name);
+        $this->name = $name;
 
         return $this;
     }

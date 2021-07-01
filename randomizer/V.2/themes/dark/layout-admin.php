@@ -14,7 +14,7 @@
 </head>
 
 
-<body class="">
+<body>
     <header class="navbar navbar-expand-sm navbar-dark bg-dark px-4">
         <a class="navbar-brand fs-2 p-3" href="./">Smite Random Build</a>
         <?php if (!empty($_SESSION)) : ?>
@@ -24,15 +24,15 @@
         <?php endif ?>
         <div id="menu" class="collapse navbar-collapse ms-auto w-auto">
 
-            <nav class="">
+            <nav class="nav">
                 <?php if (!empty($_SESSION)) : ?>
-                    <a class="nav-link" href="/admin">Administration</a>
+                    <a class="nav-link text-light" href="/admin">Administration</a>
                     <a class="nav-link text-danger" href="/logout">Déconnexion</a>
                 <?php endif ?>
             </nav>
         </div>
     </header>
-    <main class="d-flex flex-column pb-5 main">
+    <main class="d-flex flex-column pb-5">
 
         <?php if ($template !== 'homepage' && $template !== '404' && $template !=='login_admin') {
             include $theme_default . 'nav_admin.php';

@@ -12,7 +12,7 @@
             <div class="popover"><?= htmlspecialchars($oGod->getDescription()) ?></div>
         </figcaption>
 
-        <img class="god_picture test" src="themes/dark/img/Bellona_1920.jpg" alt="<?= htmlspecialchars($oGod->getName()) . ', ' . htmlspecialchars($oGod->getTitle()) ?>">
+        <img class="god_picture test" src="themes/dark/img/<?= htmlspecialchars($oGod->getName()) ?>_1920.jpg" alt="<?= htmlspecialchars($oGod->getName()) . ', ' . htmlspecialchars($oGod->getTitle()) ?>">
 
     </figure>
 

@@ -1,33 +1,44 @@
 @media screen and (max-width: 36em) {
 
+    .header{
+        padding: 1em;
+        font-size: 0.6em;
+    }
+
+
+
+    .random {
+
+        .god {
+            .god_picture {
+                max-width : 16em;
+            }
+        }
+
+        .items {
+            
+            .item_name{
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    .god{
+
+        .god_name {
+            margin: 0;
+        }
+
+        .god_title {
+            margin: 0;
+        }
+    }
+    
+
+
     td {
         table-layout: fixed;
         width       : 1em;
         white-space : nowrap;
-    }
-
-    .random {
-        .grid{
-            
-            display: block;
-
-            .god {
-                .god_picture {
-                    max-width : 16em;
-                }
-            }
-
-            .items {
-                
-
-                .item_name{
-                    font-size: 1.2rem;
-                }
-
-                .item_picture {
-                    max-width: 5em;
-                }
-            }
-        }
     }
 }

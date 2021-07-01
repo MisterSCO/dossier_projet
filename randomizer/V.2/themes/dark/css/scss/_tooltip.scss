@@ -1,7 +1,7 @@
 .popover{
     display: none;
 }
-@media screen and (hover: hover){
+@media (hover: hover){
     .popover {
         z-index         : 1000;
         max-width       : 700px;

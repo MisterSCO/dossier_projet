@@ -26,6 +26,7 @@
         }
         let popovers = document.querySelectorAll('.popover');
 
+        // Calcule du placement de la souris pour toutes les popovers
         window.onmousemove = function (e) {
             let x = (e.clientX + 20) + 'px';
             let y = (e.clientY + 20) + 'px';

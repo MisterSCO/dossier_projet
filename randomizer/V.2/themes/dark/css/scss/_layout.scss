@@ -2,6 +2,7 @@
     max-width: 1920px;
     margin: 0 auto;
     padding-bottom: 3em;
+    color: azure;
 }
 
 .random{
@@ -10,8 +11,10 @@
     align-items: center;
 }
 
-.god {
-    background-color: $main-background;
+.subtitle{
+    margin: 0;
+    text-align: center;
+    font-size: 1.2em;
 }
 
 .h1 {
@@ -20,7 +23,7 @@
 }
 
 .item_name {
-    font-size: 0.5em;
+    font-size: 0.8em;
 }
 
 
@@ -28,6 +31,7 @@
     position  : relative;
     border: 5px darken($gold, 5%) solid;
     text-align: center;
+    background-color: $dark-blue;
 
 
     .header-figcaption {
@@ -49,8 +53,6 @@
 
 }
 
-
-
 .items {
     margin                 : 0;
     padding: 1em;
@@ -67,7 +69,54 @@
         text-align: center;
 
         .item{
-            background-color: $main-background;
+            background-color: $dark-blue;
         }
+    }
+}
+
+.header,
+.footer {
+    padding         : 2rem calc((100% - 1900px) / 2);
+    background-color: darken($dark-blue, 5%);
+    color           : white;
+
+    a {
+        color          : $color-inverse;
+    }
+}
+
+
+.header {
+    display              : grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows   : auto;
+    gap                  : 1rem;
+    align-items          : center;
+
+    .logo {
+        grid-column: 1;
+        grid-row   : 1;
+        font-size  : 1.2em;
+        color      : lighten($gold, 5%);
+    }
+
+    .nav {
+        grid-column   : 2;
+        grid-row      : 1;
+        justify-self  : end;
+        text-transform: uppercase;
+
+        a {
+            margin: 0 1em;
+        }
+    }
+}
+
+
+.footer {
+    text-align: center;
+
+    p {
+        margin: 0;
     }
 }
