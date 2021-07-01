@@ -1,0 +1,73 @@
+.main{
+    max-width: 1920px;
+    margin: 0 auto;
+    padding-bottom: 3em;
+}
+
+.random{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.god {
+    background-color: $main-background;
+}
+
+.h1 {
+    color: $title;
+    text-align: center;
+}
+
+.item_name {
+    font-size: 0.5em;
+}
+
+
+.god {
+    position  : relative;
+    border: 5px darken($gold, 5%) solid;
+    text-align: center;
+
+
+    .header-figcaption {
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+
+    &::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at center, rgba(0, 0, 0, 0.425) 0, rgb(0, 0, 0) 100%);
+
+    }
+
+}
+
+
+
+.items {
+    margin                 : 0;
+    padding: 1em;
+    display                : flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+    list-style-type        : none;
+    background-color: darken($gold, 5%);
+
+    li{
+        margin: 0;
+        padding: 0;
+        text-align: center;
+
+        .item{
+            background-color: $main-background;
+        }
+    }
+}

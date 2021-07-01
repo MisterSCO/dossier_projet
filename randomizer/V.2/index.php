@@ -14,6 +14,7 @@ $router->map('GET', '/logout', 'logout');
 $router->map('GET|POST', '/edit', 'edit');
 $router->map('GET', '/delete', 'delete');
 $router->map('GET|POST', '/add', 'add');
+$router->map('GET', '/random', 'homepage');
 
 $match = $router->match();
 

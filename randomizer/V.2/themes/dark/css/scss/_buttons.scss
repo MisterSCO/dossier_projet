@@ -1,0 +1,22 @@
+.randomize-button {
+	display: block;
+	margin: 2rem auto;
+	line-height     : 2.5;
+	font-size       : 1.4em;
+	text-align      : center;
+	color           : #fff;
+	text-shadow     : 1px 1px 1px #000;
+	border-radius   : 10px;
+	background-color: $gold;
+	background-image: linear-gradient(to top left,
+			rgba(0, 0, 0, .2),
+			rgba(0, 0, 0, .2) 30%,
+			rgba(0, 0, 0, 0));
+	box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+		inset -2px -2px 3px rgba(255, 255, 255, .6);
+
+}
+
+.randomize-button:hover {
+	background-color: #fae92c;
+}

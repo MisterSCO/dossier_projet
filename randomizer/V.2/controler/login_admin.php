@@ -52,4 +52,4 @@ if (
     $message = 'Email ou Mot de passe incorrecte';
 }
 $template = 'login_admin';
-include_once $theme_default . 'layout.php';
+include_once $theme_default . 'layout-admin.php';

@@ -87,4 +87,4 @@ if (!empty($_POST)) {
 
 /* Partie inclusion de la vue */
 $template = 'edit';
-include_once $theme_default . 'layout.php';
+include_once $theme_default . 'layout-admin.php';

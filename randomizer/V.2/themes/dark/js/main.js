@@ -20,19 +20,34 @@
     
 
     function tooltips() {
-        let spans = document.querySelectorAll('.span');
 
-    
+        if(window.matchMedia("(hover: none)").matches){
+            return;
+        }
+        let popovers = document.querySelectorAll('.popover');
+
         window.onmousemove = function (e) {
-            var x = (e.clientX + 20) + 'px',
-                y = (e.clientY + 20) + 'px';
-            for (var i = 0; i < spans.length; i++) {
-                spans[i].style.top = y;
-                spans[i].style.left = x;
+            let x = (e.clientX + 20) + 'px';
+            let y = (e.clientY + 20) + 'px';
+            for (let i = 0; i < popovers.length; i++) {
+                popovers[i].style.top = y;
+                popovers[i].style.left = x;
             }
         };
+
     }
 
+    
+    // Confirmation de suppression
     window.addEventListener('load', deleteConfirm);
+
+    // Calcule du positionnement de la souris pour l'affichage de l'infobulle
     window.addEventListener('load', tooltips);
+
+    // Recharger la page au redimmension de la fenetre
+    window.addEventListener('resize',function(){
+
+        document.location.reload();
+
+    });
 })();
