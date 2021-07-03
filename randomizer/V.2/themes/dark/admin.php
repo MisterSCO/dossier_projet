@@ -2,7 +2,7 @@
     <header class="bg-light p-1 rounded text-center">
         <h1>Tableau de bord</h1>
         <p>Gestion des dieux</p>
-        <form class="d-flex col-sm-4" methode="get">
+        <form class="d-flex col-sm-4">
             <input class="form-control form-control-lg search fs-4" name="search" type="search" placeholder="Rechercher via le nom, la classe ou la mythologie" aria-label="Search" value="<?php if (!empty($_GET['search'])) {
                                                                                                                                                                                             echo $_GET['search'];
                                                                                                                                                                                         }; ?>">
@@ -20,7 +20,6 @@
                     <th>Titre du dieu</th>
                     <th>Mythologie</th>
                     <th>Description du dieu</th>
-                    <th>Lien image du dieu</th>
                     <th class="text-center">Modifier</th>
                     <th class="text-center">Supprimer</th>
                 </tr>
@@ -35,7 +34,6 @@
                         <td><?= htmlspecialchars($oGod->getTitle()) ?></td>
                         <td><?= htmlspecialchars($oGod->getMythologie()) ?></td>
                         <td><?= substr(htmlspecialchars($oGod->getDescription()), 0, 30) ?>...</td>
-                        <td><?= substr(htmlspecialchars($oGod->getImg()), 0, 31) ?>...</td>
                         <td class="text-center">
                             <a href="/edit?id=<?= intval($oGod->getId()) ?>" class="btn btn-info text-light" title="Editer l'article">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">

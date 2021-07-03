@@ -31,7 +31,7 @@
 
                     <div class="mb-3 col">
                         <label for="id_class" class="form-label">Classe</label>
-                        <select class="form-select fs-4" aria-describedby="help-user" name="id_class">
+                        <select class="form-select fs-4" name="id_class">
                             <option value="" class="fs-4" selected disabled>Choisir la classe du dieu</option>
                             <?php foreach ($aClasses as $oClasse) : ?>
                                 <option class="fs-4" value="<?= intval($oClasse->getId()) ?>">
@@ -40,13 +40,6 @@
                             <?php endforeach; ?>
                         </select>
                     </div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="picture_god" class="form-label">Lien image du dieu</label>
-                    <input type="picture_god" name="picture_god" id="picture_god" class="form-control fs-4" value="<?php if (!empty($_POST)) {
-                                                                                                                        echo $_POST['picture_god'];
-                                                                                                                    } ?>">
                 </div>
 
                 <div class="mb-3">

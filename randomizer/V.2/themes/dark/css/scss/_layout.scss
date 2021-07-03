@@ -17,9 +17,18 @@
     font-size: 1.2em;
 }
 
-.h1 {
+.main-title {
+    font-family: $main-title;
+    font-size: 8rem;
     color: $title;
     text-align: center;
+    text-shadow: 0 0 3rem #000, 0 0 3rem #000;
+}
+
+.god_name{
+    font-size: 3em;
+    font-family: $god-title;
+    text-shadow: 0 0 3rem #000, 0 0 3rem #000;
 }
 
 .item_name {

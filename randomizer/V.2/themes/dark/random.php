@@ -1,5 +1,5 @@
 <section class="random">
-    <h1 class="h1">Votre personnage</h1>
+    <h1 class="main-title">Votre personnage</h1>
 
 
     <figure class="god popover-container" tabindex="0">

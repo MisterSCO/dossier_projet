@@ -30,10 +30,9 @@ if (!empty($_POST)) {
     // On prépare des variables correspondant à la vérification si les données sont déjà présent en BDD 
     $verifyNameGod = God::VerifyBdd(trim($_POST['name']));
     $verifyTitleGod = God::VerifyBdd(trim($_POST['title']));
-    $verifyImgGod = God::VerifyBdd(trim($_POST['picture_god']));
     
     //
-    if (empty($_POST['name']) || empty($_POST['title']) || empty($_POST['mythologie']) || empty($_POST['id_class'])|| empty($_POST['picture_god']) || empty($_POST['description'])) {
+    if (empty($_POST['name']) || empty($_POST['title']) || empty($_POST['mythologie']) || empty($_POST['id_class'])|| empty($_POST['description'])) {
         $message = '* Certains champs ne sont pas remplis';
     } 
     elseif($verifyNameGod) {
@@ -42,9 +41,7 @@ if (!empty($_POST)) {
     elseif($verifyTitleGod) {
         $message = '* Ce titre existe déjà pour '. $verifyTitleGod->getName();
     } 
-    elseif($verifyImgGod) {
-        $message = '* Cette image existe déjà pour '. $verifyImgGod->getName();
-    }
+    
     else {
 
         // Création d'un nouvel objet remplit avec les Setter
@@ -53,7 +50,6 @@ if (!empty($_POST)) {
         $oGod->setTitle(htmlspecialchars($_POST['title']));
         $oGod->setMythologie(htmlspecialchars($_POST['mythologie']));
         $oGod->setClass(htmlspecialchars($_POST['id_class']));
-        $oGod->setImg(htmlspecialchars($_POST['picture_god']));
         $oGod->setDescription(htmlspecialchars($_POST['description']));
         // Envoie de l'objet en BDD
         $oGod->create();

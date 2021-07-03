@@ -33,7 +33,6 @@ if (!empty($_GET['id'])) {
         'title' => $oGod->getTitle(),
         'mythologie' => $oGod->getMythologie(),
         'id_class' => $oGod->getClass(),
-        'picture_god' => $oGod->getImg(),
         'description' => $oGod->getDescription()
     );
 }
@@ -43,7 +42,6 @@ if (!empty($_POST)) {
 
     $verifyNameGod = God::VerifyBdd(trim($_POST['name']));
     $verifyTitleGod = God::VerifyBdd(trim($_POST['title']));
-    $verifyImgGod = God::VerifyBdd(trim($_POST['picture_god']));
     
 
     $aFormDatas = array(
@@ -52,18 +50,15 @@ if (!empty($_POST)) {
         'title' => htmlspecialchars($_POST['title']),
         'mythologie' => htmlspecialchars($_POST['mythologie']),
         'id_class' => htmlspecialchars($_POST['id_class']),
-        'picture_god' => htmlspecialchars($_POST['picture_god']),
         'description' => htmlspecialchars($_POST['description'])
     );
 
-    if (empty($_POST['name']) || empty($_POST['title']) || empty($_POST['mythologie']) || empty($_POST['id_class']) || empty($_POST['picture_god']) || empty($_POST['description'])) {
+    if (empty($_POST['name']) || empty($_POST['title']) || empty($_POST['mythologie']) || empty($_POST['id_class'])  || empty($_POST['description'])) {
         $message = '* Certains champs ne sont pas remplis';
     } elseif ($verifyNameGod && $verifyNameGod->getId() != $aFormDatas['id_god']) {
         $message = '* Ce nom de dieu existe déjà';
     } elseif ($verifyTitleGod && $verifyTitleGod->getId() != $aFormDatas['id_god']) {
         $message = '* Ce titre existe déjà pour ' . $verifyTitleGod->getName();
-    } elseif ($verifyImgGod && $verifyImgGod->getId() != $aFormDatas['id_god']) {
-        $message = '* Cette image existe déjà pour ' . $verifyImgGod->getName();
     }
 
     else{
@@ -74,7 +69,6 @@ if (!empty($_POST)) {
         $oGod->setName(htmlspecialchars($_POST['name']));
         $oGod->setTitle(htmlspecialchars($_POST['title']));
         $oGod->setMythologie(htmlspecialchars($_POST['mythologie']));
-        $oGod->setImg(htmlspecialchars($_POST['picture_god']));
         $oGod->setClass(htmlspecialchars($_POST['id_class']));
         $oGod->setDescription(htmlspecialchars($_POST['description']));
 

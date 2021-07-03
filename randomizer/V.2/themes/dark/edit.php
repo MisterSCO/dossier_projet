@@ -38,11 +38,6 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="picture_god" class="form-label">Lien image du dieu</label>
-                    <input type="picture_god" name="picture_god" id="picture_god" class="form-control fs-4" value="<?= htmlspecialchars($aFormDatas['picture_god']) ?>">
-                </div>
-
-                <div class="mb-3">
                     <label for="description" class="form-label">L'histoire du dieu</label>
                     <textarea name="description" id="description" class="form-control fs-4" cols="10" rows="10"><?= htmlspecialchars($aFormDatas['description']) ?></textarea>
                 </div>

@@ -23,8 +23,6 @@ class God
     /** @var string */
     protected $mythologie;
 
-    /** @var string */
-    protected $img;
 
     /** @var int */
     protected $class;
@@ -47,7 +45,6 @@ class God
         $this->setTitle($aData['title']);
         $this->setDescription($aData['description']);
         $this->setMythologie($aData['mythologie']);
-        $this->setImg($aData['picture_god']);
         $this->setClass($aData['id_class']);
         $this->setClass_label($aData['label']);
         
@@ -167,11 +164,10 @@ class God
                     *
                 FROM `' . self::TABLE .'` 
                 INNER JOIN class ON `' . self::TABLE . '`.id_class = class.id_class
-                WHERE name = :name OR title = :title OR picture_god = :picture_god
+                WHERE name = :name OR title = :title
             ');
         $query->bindValue(':name', $verify, \PDO::PARAM_STR);
         $query->bindValue(':title', $verify, \PDO::PARAM_STR);
-        $query->bindValue(':picture_god', $verify, \PDO::PARAM_STR);
         $query->execute();
 
         $aGod = $query->fetch();
@@ -193,7 +189,7 @@ class God
 
         $query = $pdo->prepare('
             INSERT INTO `' . self::TABLE . '`(
-            `name`, `title`, `description`, `mythologie`, `picture_god`, `id_class`
+            `name`, `title`, `description`, `mythologie`, `id_class`
 
         ) 
         VALUES (
@@ -201,7 +197,6 @@ class God
             :title,
             :description,
             :mythologie,
-            :picture_god,
             :id_class
         )
         
@@ -211,7 +206,6 @@ class God
         $query->bindValue(':title', $this->title, \PDO::PARAM_STR);
         $query->bindValue(':description', $this->description, \PDO::PARAM_STR);
         $query->bindValue(':mythologie', $this->mythologie, \PDO::PARAM_STR);
-        $query->bindValue(':picture_god', $this->img, \PDO::PARAM_STR);
         $query->bindValue(':id_class', $this->class, \PDO::PARAM_INT);
         
         $query->execute();
@@ -225,7 +219,7 @@ class God
 
         $query = $pdo->prepare('
             UPDATE `' . self::TABLE . '`
-            SET `name`=:name,`title`=:title,`description`=:description,`mythologie`=:mythologie,`picture_god`=:picture_god,`id_class`=:id_class
+            SET `name`=:name,`title`=:title,`description`=:description,`mythologie`=:mythologie,`id_class`=:id_class
             WHERE id_god = :id_god
         ');
         
@@ -234,7 +228,6 @@ class God
         $query->bindValue(':title', $this->title, \PDO::PARAM_STR);
         $query->bindValue(':description', $this->description, \PDO::PARAM_STR);
         $query->bindValue(':mythologie', $this->mythologie, \PDO::PARAM_STR);
-        $query->bindValue(':picture_god', $this->img, \PDO::PARAM_STR);
         $query->bindValue(':id_class', $this->class, \PDO::PARAM_INT);
 
         $query->execute();
@@ -372,25 +365,6 @@ class God
         return $this;
     }
 
-    /**
-     * Get the value of img_god
-     */ 
-    public function getImg()
-    {
-        return $this->img;
-    }
-
-    /**
-     * Set the value of img_god
-     *
-     * @return  self
-     */ 
-    public function setImg($img)
-    {
-        $this->img = trim($img);
-
-        return $this;
-    }
 
     /**
      * Get the value of class
