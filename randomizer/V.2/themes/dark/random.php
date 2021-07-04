@@ -4,7 +4,7 @@
         <h1 class="main-title">Ton destin est scellé, tu seras :</h1>
     </header>
 
-    <figure class="god popover-container" tabindex="0">
+    <figure class="god popover-container">
         <figcaption>
             <header class="header-figcaption">
                 <h1 class="god_name"><?= htmlspecialchars($oGod->getName()) ?></h1>
@@ -26,7 +26,7 @@
     <ul class="items">
         <?php while ($items = $query_items->fetch()) : ?>
             <li>
-                <figure class="popover-container item" tabindex="0">
+                <figure class="popover-container item">
                     <figcaption>
                         <h1 class="item_name"><?= htmlspecialchars($items['name']) ?></h1>
                         <div class="popover"><?= htmlspecialchars($items['passif']) ?></div>

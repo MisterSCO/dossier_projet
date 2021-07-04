@@ -12,7 +12,6 @@ name: varchar(32)
 title: varchar(32)
 description: text
 mythologie: varchar(32)
-picture_god: varchar(256)
 
 
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1184</x><y>521</y><w>210</w><h>110</h></coordinates><panel_attributes>_items_
