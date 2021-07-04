@@ -23,7 +23,6 @@ class God
     /** @var string */
     protected $mythologie;
 
-
     /** @var int */
     protected $class;
     
@@ -244,6 +243,7 @@ class God
             FROM `' . self::TABLE .'`
             WHERE id_god = :id_god
         ');
+        
         $query->bindValue(':id_god', $this->id ,\PDO::PARAM_INT);
 
         // Exécution de la requête

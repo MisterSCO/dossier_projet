@@ -1,34 +1,57 @@
-@media screen and (max-width: 36em) {
-
-    .header{
-        padding: 1em;
-        font-size: 0.6em;
+@media screen and (max-width: 768px){
+    
+    .main-title {
+        font-size: 4vmax;
     }
 
-    .main-title{
-        font-size: 5rem;
+    .header {
+        padding   : 1em;
+        font-size : 2rem;
+        display   : block;
+        text-align: center;
+    }
+    .items{
+        margin: 0 5em;
+    }
+}
+@media screen and (max-width: 375px) {
+
+    .header {
+        padding   : 1em;
+        font-size : 1.5rem;
+        display   : block;
+        text-align: center;
+    }
+
+    .footer {
+        font-size: 1.5rem;
+    }
+
+    .main-title {
+        font-size: 4vmax;
     }
 
     .random {
 
         .god {
             .god_picture {
-                max-width : 16em;
+                max-width: 16em;
             }
         }
 
         .items {
-            
-            .item_name{
+            margin: 0;
+
+            .item_name {
                 font-size: 1.2rem;
             }
         }
     }
 
-    .god{
+    .god {
 
         .god_name {
-            margin: 0;
+            margin   : 0;
             font-size: 2em;
         }
 
@@ -36,7 +59,7 @@
             margin: 0;
         }
     }
-    
+
 
 
     td {

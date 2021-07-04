@@ -6,12 +6,12 @@
                 <?= $message ?>
                 <div class="row">
                     <div class="mb-3 col">
-                        <label for="email" class="form-label">Email</label>
-                        <input value="l.lecomte77@gmail.com" type="email" name="email" id="email" class="form-control fs-4">
+                        <label for="email" class="form-label fs-3">Email</label>
+                        <input type="email" name="email" id="email" class="form-control fs-4">
                     </div>
                     <div class="mb-3 col">
-                        <label for="pass" class="form-label">Mot de passe</label>
-                        <input value="123456" type="password" name="pass" id="pass" class="form-control fs-4">
+                        <label for="pass" class="form-label fs-3">Mot de passe</label>
+                        <input type="password" name="pass" id="pass" class="form-control fs-4">
                     </div>
                 </div>
             </fieldset>

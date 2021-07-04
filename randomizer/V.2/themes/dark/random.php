@@ -1,6 +1,8 @@
 <section class="random">
-    <h1 class="main-title">Votre personnage</h1>
+    <header>
 
+        <h1 class="main-title">Ton destin est scellé, tu seras :</h1>
+    </header>
 
     <figure class="god popover-container" tabindex="0">
         <figcaption>
@@ -12,7 +14,12 @@
             <div class="popover"><?= htmlspecialchars($oGod->getDescription()) ?></div>
         </figcaption>
 
-        <img class="god_picture test" src="themes/dark/img/<?= htmlspecialchars($oGod->getName()) ?>_1920.jpg" alt="<?= htmlspecialchars($oGod->getName()) . ', ' . htmlspecialchars($oGod->getTitle()) ?>">
+
+        <picture class="god_picture test" alt="<?= htmlspecialchars($oGod->getName()) . ', ' . htmlspecialchars($oGod->getTitle()) ?>">
+            <source srcset="themes/dark/img/<?= htmlspecialchars($oGod->getName()) ?>_1920.jpg" media="(min-width:1025px)">
+            <source srcset="themes/dark/img/<?= htmlspecialchars($oGod->getName()) ?>_1024.jpg" media="(min-width:769px)">
+            <img src="themes/dark/img/<?= htmlspecialchars($oGod->getName()) ?>_768.jpg">
+        </picture>
 
     </figure>
 
@@ -29,5 +36,5 @@
             </li>
         <?php endwhile ?>
     </ul>
-
+    <a class="text-light randomize-button" href="">Essaye encore</a>
 </section>
