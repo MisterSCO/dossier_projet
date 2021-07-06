@@ -1,13 +1,12 @@
 <section class="random">
     <header>
-
         <h1 class="main-title">Ton destin est scellé, tu seras :</h1>
     </header>
 
     <figure class="god popover-container">
         <figcaption>
             <header class="header-figcaption">
-                <h1 class="god_name"><?= htmlspecialchars($oGod->getName()) ?></h1>
+                <h2 class="god_name"><?= htmlspecialchars($oGod->getName()) ?></h2>
                 <p class="god_title"><?= htmlspecialchars($oGod->getTitle()) ?></p>
             </header>
 

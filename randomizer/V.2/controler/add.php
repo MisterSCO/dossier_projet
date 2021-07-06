@@ -31,17 +31,22 @@ if (!empty($_POST)) {
     $verifyNameGod = God::VerifyBdd(trim($_POST['name']));
     $verifyTitleGod = God::VerifyBdd(trim($_POST['title']));
     
-    //
+    // Si les champs ne sont pas remplis
     if (empty($_POST['name']) || empty($_POST['title']) || empty($_POST['mythologie']) || empty($_POST['id_class'])|| empty($_POST['description'])) {
         $message = '* Certains champs ne sont pas remplis';
     } 
+
+    // Si le nom existe déjà
     elseif($verifyNameGod) {
         $message = '* Ce nom de dieu existe déjà';
     } 
+
+    // Si un titre existe déjà
     elseif($verifyTitleGod) {
         $message = '* Ce titre existe déjà pour '. $verifyTitleGod->getName();
     } 
     
+    // Sinon on ajoute en base de données
     else {
 
         // Création d'un nouvel objet remplit avec les Setter

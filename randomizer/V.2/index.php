@@ -18,8 +18,9 @@ $router->map('GET', '/random', 'homepage');
 
 $match = $router->match();
 
+
 if (is_array($match)) {
     require "./controler/{$match['target']}.php";
 } else {
-    require 'controler/404.php';
+    require './controler/404.php';
 }
