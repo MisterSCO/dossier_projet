@@ -8,8 +8,8 @@
 
     "autoload": {
         "psr-4": {
-            "Entity\\" : "Entity",
-            "Manager\\" : "Manager"
+            "Entity\\" : "Entity/",
+            "Manager\\" : "Manager/"
         }
     }
 }

@@ -3,9 +3,11 @@
 use Entity\Admin;
 
 require_once 'config/config.php';
-require_once('config/sessions.php');
-require_once '_bootstrap.php';
+require_once ('config/sessions.php');
+require './vendor/autoload.php';
 
+
+session_start();
 $theme_default = THEME_PATH . THEME_DEFAULT . '/';
 
 $message = '';

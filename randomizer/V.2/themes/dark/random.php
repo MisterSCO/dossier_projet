@@ -23,17 +23,17 @@
     </figure>
 
     <ul class="items">
-        <?php while ($items = $query_items->fetch()) : ?>
+        <?php foreach ($aItems as $oItem) : ?>
             <li>
                 <figure class="popover-container item">
                     <figcaption>
-                        <h1 class="item_name"><?= htmlspecialchars($items['name']) ?></h1>
-                        <div class="popover"><?= htmlspecialchars($items['passif']) ?></div>
+                        <h1 class="item_name"><?= htmlspecialchars($oItem->getName()) ?></h1>
+                        <div class="popover"><?= htmlspecialchars($oItem->getPassif()) ?></div>
                     </figcaption>
-                    <img class="item_picture" src="<?= htmlspecialchars($items['picture_item']) ?>" alt="<?= htmlspecialchars($items['name']) ?>">
+                    <img class="item_picture" src="<?= htmlspecialchars($oItem->getImg()) ?>" alt="<?= htmlspecialchars($oItem->getName()) ?>">
                 </figure>
             </li>
-        <?php endwhile ?>
+        <?php endforeach ?>
     </ul>
     <a class="text-light randomize-button" href="">Essaye encore</a>
 </section>

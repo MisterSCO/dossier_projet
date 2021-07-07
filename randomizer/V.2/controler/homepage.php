@@ -2,22 +2,23 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
+
 use Entity\God;
 use Entity\Item;
 use Entity\Classe;
 
+init_session();
 
 // Partie HEAD
 $title = '';
 $descrip = 'Support de sélection aléatoire de votre personnage et vos objets pour le jeu SMITE';
 
 require_once 'config/config.php';
-require_once('_bootstrap.php');
+require './vendor/autoload.php';
 
 
 
 $theme_default = THEME_PATH . THEME_DEFAULT . '/';
-
 
 
 $template = 'homepage';
@@ -35,16 +36,12 @@ if(strstr($uri, '/random'))
 
 
     // Appele de la fonction pour choisir les objets aléatoirement
-    $query_items = Item::getRandomItemsById($oClasse->getType());
+    $aItems = Item::getRandom($oClasse->getType());
+
 
     // Affichage
     $template = 'random';
 }
-
-
-
-
-
 
 
 include_once $theme_default . 'layout.php';

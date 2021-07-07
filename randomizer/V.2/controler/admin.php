@@ -2,9 +2,11 @@
 
 use Entity\God;
 
+session_start();
+
 require_once 'config/config.php';
 require_once 'config/sessions.php';
-require_once '_bootstrap.php';
+require './vendor/autoload.php';
 
 $title = 'Tableau de bord |';
 $descrip = 'Gestion des dieux';

@@ -3,9 +3,10 @@
 use Entity\God;
 use Entity\Classe;
 
+
 require_once 'config/config.php';
 require_once 'config/sessions.php';
-require_once '_bootstrap.php';
+require './vendor/autoload.php';
 
 $title = 'Ajouter un dieu |';
 $descrip = 'Ajouter un dieu manquant';

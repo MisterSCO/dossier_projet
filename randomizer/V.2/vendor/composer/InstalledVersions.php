@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'cd26eb81ab6e9199d09c23f2b686a9df55b1a323',
+    'reference' => 'a214685b32a49a8a0eb7b8cf2ed19b793f996c99',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'cd26eb81ab6e9199d09c23f2b686a9df55b1a323',
+      'reference' => 'a214685b32a49a8a0eb7b8cf2ed19b793f996c99',
     ),
     'altorouter/altorouter' => 
     array (
@@ -73,12 +73,12 @@ private static $installed = array (
     ),
     'symfony/var-dumper' => 
     array (
-      'pretty_version' => 'v5.3.2',
-      'version' => '5.3.2.0',
+      'pretty_version' => 'v5.3.3',
+      'version' => '5.3.3.0',
       'aliases' => 
       array (
       ),
-      'reference' => '905a22c68b292ffb6f20d7636c36b220d1fba5ae',
+      'reference' => '46aa709affb9ad3355bd7a810f9662d71025c384',
     ),
   ),
 );

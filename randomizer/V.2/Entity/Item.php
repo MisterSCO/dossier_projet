@@ -57,11 +57,11 @@ class Item
         $query = $pdo->prepare('
             SELECT * 
             FROM `' . self::TABLE . '`
-            WHERE `id_item` = :id_item
+            WHERE `id_type` = :id_type
             ORDER by RAND()
             LIMIT 6
         ');
-        $query->bindValue(':id_item', $iId, \PDO::PARAM_INT);
+        $query->bindValue(':id_type', $iId, \PDO::PARAM_INT);
         $query->execute();
 
         $aList = array();
@@ -70,25 +70,7 @@ class Item
             $aList[] = (new Item())->hydrate($aItem);
         }
 
-        return $aList;;
-    }
-
-    public static function getRandomItemsById($id_item)
-    {
-        $pdo = DbManager::connect();
-
-        //Requete SQL
-        $query = $pdo->prepare('
-            SELECT * 
-            FROM `items` 
-            WHERE `id_type` = :id_item
-            ORDER by RAND()
-            LIMIT 6
-        ');
-        $query->bindValue(':id_item', $id_item, \PDO::PARAM_INT);
-        $query->execute();
-
-        return $query;
+        return $aList;
     }
 
     /*------------------------ Getter And Setter ------------------------*/
