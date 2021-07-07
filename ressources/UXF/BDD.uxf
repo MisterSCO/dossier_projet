@@ -25,7 +25,7 @@ picture_item: varchar(32)
 --
 id_admin: int(11)
 email: varchar(100)
-passif: varchar(255)
+pass: varchar(255)
 
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>689</x><y>107</y><w>140</w><h>70</h></coordinates><panel_attributes>Note: La classe du 
 personnage définie

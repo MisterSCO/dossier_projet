@@ -14,10 +14,10 @@
         </figcaption>
 
 
-        <picture class="god_picture test" alt="<?= htmlspecialchars($oGod->getName()) . ', ' . htmlspecialchars($oGod->getTitle()) ?>">
+        <picture class="god_picture test">
             <source srcset="themes/dark/img/<?= htmlspecialchars($oGod->getName()) ?>_1920.jpg" media="(min-width:1025px)">
             <source srcset="themes/dark/img/<?= htmlspecialchars($oGod->getName()) ?>_1024.jpg" media="(min-width:769px)">
-            <img src="themes/dark/img/<?= htmlspecialchars($oGod->getName()) ?>_768.jpg">
+            <img src="themes/dark/img/<?= htmlspecialchars($oGod->getName()) ?>_768.jpg" alt="<?= htmlspecialchars($oGod->getName()) . ', ' . htmlspecialchars($oGod->getTitle()) ?>">
         </picture>
 
     </figure>
